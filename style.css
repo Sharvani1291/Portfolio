@@ -1,0 +1,879 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: transparent; /* Mint Green */
+    overflow-x: hidden;
+}
+
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #673147;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px; /* Increased gap for more space between links */
+    margin-right: 10px;
+}
+
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.nav-links a:hover {
+    color: #ffcc00;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.resume-link {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Scrolling Sections */
+#scroll-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    min-height: 100vh;
+    width: 100%;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section h1, section p {
+    text-align: left;
+}
+
+.animated-icons span {
+    font-size: 1.2em;
+    animation: float 1.5s ease-in-out infinite;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.animated-icons span:nth-child(1) {
+    animation-delay: 0s; /* First icon */
+}
+
+.animated-icons span:nth-child(2) {
+    animation-delay: 0.5s; /* Second icon */
+}
+
+.animated-icons span:nth-child(3) {
+    animation-delay: 1s; /* Third icon */
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); /* Moves the icons up slightly */
+    }
+}
+
+/* Footer */
+footer {
+    background: #673147;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Home Section */
+#home {
+    background-color: #f5f5dc; /* Beige background */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 60px 5%; /* Fixed padding for the section */
+    height: 100vh; /* Full viewport height */
+}
+
+.home-container {
+    display: flex;
+    width: 100%; /* Full width of the section */
+    justify-content: space-between; /* Space between left and right parts */
+    gap: 50px; /* Space between the two parts */
+}
+
+.left-part {
+    flex: 1; /* Take up 50% of the width */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    margin-top: 70px;
+}
+
+.intro h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.highlight {
+    color: #4CAF50; /* Green highlight for the name */
+}
+
+.roles {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(7, 7, 59); /* Dark blue for roles */
+    margin-top: 10px;
+    white-space: nowrap; /* Keep roles in one line */
+}
+
+.get-in-touch {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 80px; /* Space between roles and contact section */
+    margin-bottom: 10px;
+    top: 5%;
+    text-decoration: underline;
+}
+
+/* Contact Details */
+.contact-details {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px; /* Space between icons */
+}
+
+.contact-icon img {
+    width: 40px; /* Fixed size for the icons */
+    height: 40px;
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.contact-icon img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Right Part: Photo */
+.right-part {
+    flex: 1; /* Take up 50% of the width */
+    display: flex;
+    justify-content: center; /* Center the photo */
+    align-items: center;
+    margin-top: 70px;
+}
+
+.photo-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px; /* Rounded corners */
+    width: 100%; /* Allow the image to take up the full width */
+    max-width: 500px; /* Optional: Limit the max size of the photo */
+    background-color: #8c4863;
+}
+
+#home img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover; /* Ensures the image fills the space while maintaining the aspect ratio */
+    transition: transform 1.5s ease, opacity 1.5s ease; /* Reveal effect */
+}
+
+.photo-container:hover img {
+    transform: scale(1.1); /* Slight zoom-in on hover */
+    opacity: 1;
+}
+
+/* Wave Animation */
+.wave {
+    animation: wave-animation 1.5s infinite;
+    display: inline-block;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(15deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column; /* Stack the content vertically for small screens */
+        gap: 20px; /* Less space between sections */
+    }
+
+    .left-part, .right-part {
+        flex: none;
+        width: 100%;
+    }
+
+    .photo-container {
+        max-width: 80%; /* Make the photo smaller on smaller screens */
+    }
+
+    .contact-details {
+        flex-direction: column; /* Stack the icons vertically for smaller screens */
+    }
+
+    .contact-icon img {
+        width: 35px; /* Adjust icon size for small screens */
+        height: 35px;
+    }
+}
+.resume-container {
+    margin-top: 30px; /* Space above the resume box */
+}
+
+.resume-box {
+    display: inline-block;
+    padding: 10px 20px; /* Rectangular padding */
+    background-color: beige; /* White background for the box */
+    color: black; /* Black text color */
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 2px solid #333; /* Border around the box */
+    border-radius: 5px; /* Slightly rounded corners */
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+}
+
+.resume-box:hover {
+    background-color: #8c4863; /* Light gray background on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Styling for the About Me Section */
+#profile {
+    background-color: #8c4863; /* Beige background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 5%; /* Fixed padding for the section */
+    height: 100vh; /* Fixed section height */
+}
+
+.about-me-title {
+    font-size: 3rem;
+    color: #ffcc00; /* Green color for the title */
+    margin-bottom: 500px;
+    margin-inline-end: -200px;
+    margin-inline-start: 1px;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+.about-emoji {
+    position: relative;
+    top: -7px; /* Moves the emoji up */
+}
+.about-me-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    width: 100%;
+    margin: 20px -10px;
+    text-align: justify;
+    display: block;
+    margin-bottom: 200px;
+    margin-top: 240px;
+    margin-left: -80px;
+    color: rgb(252, 224, 224);
+}
+
+  .highlight {
+    font-weight: bold;
+    color: #333; /* Dark color for highlighted text */
+  }
+
+/* Experience Section */
+#work {
+    background-color: #f5f5dc;
+    padding: 50px 0;
+}
+
+/* Header for Experience Section */
+.header-content {
+    font-size: 3rem;
+    text-align: left;
+    color: #ffcc00;
+    font-weight: bold;
+    padding-bottom: 20px;
+    left: 10%;
+    bottom: -115%;
+    position: absolute;
+}
+
+.experience-emoji {
+    position: relative;
+    top: -7px; /* Moves the emoji up */
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Experience Items - Vertically Aligned */
+.experience-item {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 25px 0;
+    position: relative; 
+    height: 120px; 
+    top: 40px;
+}
+
+/* Logo Styling */
+.company-logo {
+    width: 45px;
+    height: 45px; 
+    border-radius: 100%;
+    top: 20%;
+    bottom: 30%;
+    right: 29%;
+    left: 35%;
+    position: absolute;
+}
+
+/* Experience Details */
+.experience-details {
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    top: 10%;
+    white-space: nowrap;
+    position: relative;
+}
+
+/* Specific Experience 1: Resolution Life */
+.experience-resolution-life .company-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #4e4e4e;
+    margin-top: -20px;
+    position: relative;
+}
+
+.experience-resolution-life .position-title {
+    font-size: 1.3rem;
+    color: #666;
+}
+
+.experience-resolution-life .work-duration {
+    font-size: 1rem;
+    color: #888;
+}
+
+.experience-resolution-life .skill-item {
+    color: #555;
+}
+
+/* Specific Experience 2: UGA School of Computing */
+.experience-uga-school .company-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3a3a3a;
+    right: 146%;
+    margin-top: -20px;
+    position: relative;
+}
+
+.experience-uga-school .position-title {
+    font-size: 1.2rem;
+    color: #555;
+    right: 101%;
+    position: relative;
+}
+
+.experience-uga-school .work-duration {
+    font-size: 1rem;
+    color: #777;
+    right: 120%;
+    position: relative;
+}
+
+.experience-uga-school .skill-item {
+    color: #555;
+}
+
+/* Specific Experience 3: FMD - Plans Room */
+.experience-fmd-plans .company-name {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #2d2d2d;
+    position: relative;
+    top: 4px;
+}
+
+.experience-fmd-plans .position-title1 {
+    font-size: 1.2rem;
+    color: #555;
+    right: 0%;
+    position: relative;
+    margin-bottom: 12px;
+    margin-top: 2px;
+}
+.experience-fmd-plans .work-duration {
+    font-size: 1rem;
+    color: #666;
+    position: relative;
+    top: -10px;
+}
+
+.experience-fmd-plans .location {
+    font-size: 1rem;
+    color: #777;
+    position: relative;
+    top: -10px;
+}
+
+/* Specific Experience 4: Cognizant */
+.experience-cognizant .company-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #333;
+    right: 135%;
+    position: relative;
+}
+
+.experience-cognizant .position-title {
+    font-size: 1.3rem;
+    color: #666;
+    right: 184%;
+    position: relative;
+}
+
+.experience-cognizant .work-duration {
+    font-size: 1rem;
+    color: #888;
+    right: 185%;
+    position: relative;
+}
+
+.experience-cognizant .skill-item {
+    color: #555;
+}
+
+/* Black line between logos */
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: 40%; /* Center the line between the logos */
+    top: 60%;
+    bottom: 70%;
+    width: 3px;
+    height: 100%; /* Full height of the experience item */
+    background-color: black;
+}
+
+/* Alternating layout - Flexbox for right/left placement */
+.experience-item.right {
+    flex-direction: row-reverse;
+}
+
+.experience-item.left {
+    flex-direction: row;
+}
+.experience-item:last-child::before {
+    content: none; /* Disables the line for the last experience item */
+}
+
+/* Projects Section */
+#projects {
+    padding: 20px;
+    background-color: #8c4863;
+}
+
+.projects_header {
+    font-size: 2rem;
+    text-align: left;
+    color: #ffcc00;
+    font-weight: bold;
+    padding-bottom: 2px;
+    left: 10%;
+    bottom: -230%;
+    position: absolute;
+}
+
+.projects-emoji {
+    position: relative;
+    top: -7px; /* Moves the emoji up */
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-left: 100px;
+}
+
+.project-box {
+    background-color: beige;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-block-start: 60px;
+    margin-bottom: 10px;
+}
+
+.project-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px black;
+}
+
+.project-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-duration {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.project-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.project-skills {
+    font-size: 14px;
+    color: #333;
+}
+
+.project-skills strong {
+    font-weight: bold;
+}
+
+/* Skills Section */
+.page-break {
+    page-break-before: always; /* Ensures "My Skills" starts on a new page */
+    break-before: page;
+}
+
+.skills_header {
+    font-size: 2.7rem;
+    text-align: left;
+    color: #ffcc00;
+    font-weight: bold;
+    padding-bottom: 2px;
+    left: 12%;
+    bottom: -335%;
+    position: absolute;
+    margin-left: 450px;
+}
+.skills-emoji {
+    position: relative;
+    top: -7px; /* Moves the emoji up */
+}
+body {
+    background-color: beige;
+}
+
+h4 {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: bold;
+    top: 440%;
+    right: 62.5%;
+    position: absolute;
+}
+
+h5 {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: bold;
+    top: 465%;
+    right: 62.5%;
+    position: absolute;
+}
+
+h6 {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: bold;
+    top: 490%;
+    right: 54%;
+    position: absolute;
+    text-wrap: nowrap;
+}
+
+h7 {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: bold;
+    top: 530%;
+    right: 76.1%;
+    position: absolute;
+    text-wrap: nowrap;
+}
+
+h8 {
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: bold;
+    top: 555%;
+    right: 48.5%;
+    position: absolute;
+    text-wrap: nowrap;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything below "My Skills" */
+    gap: 20px;
+    width: 100%;
+    margin-top: 80px; /* Creates space below "My Skills" */
+}
+
+.category {
+    text-align: center;
+    width: 100%;
+}
+
+.skill {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
+    gap: 20px; /* Space between images */
+    justify-items: center; /* Centers images within their grid cells */
+    align-items: center;
+    width: 80%; /* Adjust width as needed */
+    margin: 0 auto; /* Centers the grid */
+    margin-top: -150px;
+}
+.skill-item p {
+    font-weight: bold;
+    text-align: center;
+}
+
+.skill img {
+    width: 50px; /* Adjust image size */
+    height: auto;
+}
+
+
+.skill img {
+    width: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill img:hover {
+    transform: scale(1.2);
+}
+
+.tech-skill {
+    display: grid;
+    grid-template-columns: repeat(5, 4fr); /* Adjust number of columns */
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin-left: -20px;
+    margin-top: 40px;
+}
+
+.federated-learning-img {
+    position: relative;
+    left: 80px; /* Move it a little to the right */
+}
+
+
+.tech-skill-item p {
+    font-weight: bold;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.federated-learning-text {
+    position: relative;
+    left: -42px; /* Adjust the value to move it to the left */
+}
+
+.tech-skill-item:nth-child(5) {
+    position: relative;
+    margin-left: 45px; /* Move it a little to the right */
+}
+
+.tech-skill-item img {
+    width: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tech-skill-item img:hover {
+    transform: scale(1.2);
+}
+
+.tech-skill-2 {
+    display: grid;
+    grid-template-columns: repeat(7, 3fr); /* 7 items in the first row */
+    grid-template-rows: auto auto; /* Two rows for the items */
+    gap: 40px;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin-left: 40px;
+    margin-top: 120px;
+}
+
+.tech-skill-item-2 p {
+    font-weight: bold;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.tech-skill-item-2 img {
+    width: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tech-skill-item-2 img:hover {
+    transform: scale(1.2);
+}
+
+
+.android-studio-text {
+    position: relative;
+    left: -28px; /* Adjust the value to move it to the left */
+}
+
+.kubernetes-text {
+    position: relative;
+    left: -18px; /* Adjust the value to move it to the left */
+}
+
+.confluence-text {
+    position: relative;
+    left: -18px; /* Adjust the value to move it to the left */
+}
+
+.tech-skill-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr); 
+    gap: 140px;
+    justify-items: center;
+    align-items: center;
+    width: 10%;
+    position: relative;
+    margin-right: 80px;
+    margin-top: 90px;
+    margin-left: -280px;
+}
+
+.tech-skill-item-3 p {
+    font-weight: bold;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.tech-skill-item-3 img {
+    width: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tech-skill-item-3 img:hover {
+    transform: scale(1.2);
+}
+
+.tech-skill-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 3fr); 
+    gap: 140px;
+    justify-items: center;
+    align-items: left;
+    width: 100%;
+    position: relative;
+    margin-right: 50px;
+    margin-top: 140px;
+    margin-left: -80px;
+}
+
+.tech-skill-item-4 p {
+    font-weight: bold;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.tech-skill-item-4 img {
+    width: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tech-skill-item-4 img:hover {
+    transform: scale(1.2);
+}
+
+.skills-container-wrapper {
+    width: 100%;
+    padding-right: 20px; /* Adjust this value to move the container right */
+    padding-left: 10px; /* Optional: To add padding from the left as well */
+    margin-inline-start: -10px;
+    margin-top: 140px;
+
+}
+
+.skills-container h4, .skills-container h5, .skills-container h6, .skills-container h7, .skills-container h8 {
+    margin-top: 10px; /* Adjust this margin to move headers down */
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
