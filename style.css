@@ -608,17 +608,24 @@ footer {
     page-break-before: always; /* Ensures "My Skills" starts on a new page */
     break-before: page;
 }
-
+#skills {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: beige; /* Light background */
+    border-radius: 10px;
+    display: block;
+}
 .skills_header {
     font-size: 2.7rem;
     text-align: left;
     color: #ffcc00;
     font-weight: bold;
-    padding-bottom: 2px;
-    left: 12%;
-    bottom: -335%;
-    position: absolute;
-    margin-left: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -150px; 
+    margin-bottom: -200px;
 }
 .skills-emoji {
     position: relative;
@@ -632,57 +639,45 @@ h4 {
     color: #333;
     font-size: 1.8rem;
     font-weight: bold;
-    top: 440%;
-    right: 62.5%;
-    position: absolute;
 }
 
 h5 {
     color: #333;
     font-size: 1.8rem;
     font-weight: bold;
-    top: 465%;
-    right: 62.5%;
-    position: absolute;
 }
 
 h6 {
     color: #333;
     font-size: 1.8rem;
     font-weight: bold;
-    top: 490%;
-    right: 54%;
-    position: absolute;
     text-wrap: nowrap;
+    margin-right: -140px;
 }
 
 h7 {
     color: #333;
     font-size: 1.8rem;
     font-weight: bold;
-    top: 530%;
-    right: 76.1%;
-    position: absolute;
     text-wrap: nowrap;
+    margin-right: 180px;
 }
 
 h8 {
     color: #333;
     font-size: 1.8rem;
     font-weight: bold;
-    top: 555%;
-    right: 48.5%;
-    position: absolute;
     text-wrap: nowrap;
+    margin-right: -220px;
 }
 
 .skills-container {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers everything below "My Skills" */
-    gap: 20px;
-    width: 100%;
-    margin-top: 80px; /* Creates space below "My Skills" */
+    gap: 50px;
+    width: 80%;
+    margin-left: 50px;
 }
 
 .category {
@@ -693,23 +688,17 @@ h8 {
 .skill {
     display: grid;
     grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
-    gap: 20px; /* Space between images */
+    gap: 90px; /* Space between images */
     justify-items: center; /* Centers images within their grid cells */
     align-items: center;
     width: 80%; /* Adjust width as needed */
-    margin: 0 auto; /* Centers the grid */
-    margin-top: -150px;
+    margin: -30px auto -20px auto;
+    
 }
 .skill-item p {
     font-weight: bold;
     text-align: center;
 }
-
-.skill img {
-    width: 50px; /* Adjust image size */
-    height: auto;
-}
-
 
 .skill img {
     width: 50px;
@@ -723,20 +712,12 @@ h8 {
 .tech-skill {
     display: grid;
     grid-template-columns: repeat(5, 4fr); /* Adjust number of columns */
-    gap: 30px;
+    gap: 90px;
     justify-items: center;
     align-items: center;
-    width: 100%;
-    position: relative;
-    margin-left: -20px;
-    margin-top: 40px;
+    width: 80%;
+    margin: -30px auto -20px auto;
 }
-
-.federated-learning-img {
-    position: relative;
-    left: 80px; /* Move it a little to the right */
-}
-
 
 .tech-skill-item p {
     font-weight: bold;
@@ -745,13 +726,7 @@ h8 {
 }
 
 .federated-learning-text {
-    position: relative;
-    left: -42px; /* Adjust the value to move it to the left */
-}
-
-.tech-skill-item:nth-child(5) {
-    position: relative;
-    margin-left: 45px; /* Move it a little to the right */
+    left: -50px; /* Adjust the value to move it to the left */
 }
 
 .tech-skill-item img {
@@ -763,17 +738,20 @@ h8 {
     transform: scale(1.2);
 }
 
+.category1 {
+    text-align: center;
+    width: 100%;
+} 
+
 .tech-skill-2 {
     display: grid;
-    grid-template-columns: repeat(7, 3fr); /* 7 items in the first row */
+    grid-template-columns: repeat(7, 10fr); /* 7 items in the first row */
     grid-template-rows: auto auto; /* Two rows for the items */
-    gap: 40px;
+    gap: 70px;
     justify-items: center;
     align-items: center;
     width: 100%;
-    position: relative;
-    margin-left: 40px;
-    margin-top: 120px;
+    margin: -30px auto -20px auto;
 }
 
 .tech-skill-item-2 p {
@@ -790,16 +768,17 @@ h8 {
 .tech-skill-item-2 img:hover {
     transform: scale(1.2);
 }
-
+.category2 {
+    text-align: center;
+    width: 80%;
+}
 
 .android-studio-text {
-    position: relative;
-    left: -28px; /* Adjust the value to move it to the left */
+    left: -30px; /* Adjust the value to move it to the left */
 }
 
 .kubernetes-text {
-    position: relative;
-    left: -18px; /* Adjust the value to move it to the left */
+    left: -40px; /* Adjust the value to move it to the left */
 }
 
 .confluence-text {
@@ -810,14 +789,11 @@ h8 {
 .tech-skill-3 {
     display: grid;
     grid-template-columns: repeat(3, 3fr); 
-    gap: 140px;
+    gap: 10px;
     justify-items: center;
     align-items: center;
-    width: 10%;
-    position: relative;
-    margin-right: 80px;
-    margin-top: 90px;
-    margin-left: -280px;
+    width: 80%;
+    margin: -50px 150px -20px auto;
 }
 
 .tech-skill-item-3 p {
@@ -835,17 +811,19 @@ h8 {
     transform: scale(1.2);
 }
 
+.category3 {
+    text-align: center;
+    width: 100%;
+} 
+
 .tech-skill-4 {
     display: grid;
     grid-template-columns: repeat(4, 3fr); 
-    gap: 140px;
+    gap: 70px;
     justify-items: center;
     align-items: left;
-    width: 100%;
-    position: relative;
-    margin-right: 50px;
-    margin-top: 140px;
-    margin-left: -80px;
+    width: 80%;
+    margin: -30px 100px -30px auto;
 }
 
 .tech-skill-item-4 p {
@@ -863,17 +841,30 @@ h8 {
     transform: scale(1.2);
 }
 
+.category4 {
+    text-align: center;
+    width: 100%;
+}
 .skills-container-wrapper {
     width: 100%;
     padding-right: 20px; /* Adjust this value to move the container right */
-    padding-left: 10px; /* Optional: To add padding from the left as well */
-    margin-inline-start: -10px;
-    margin-top: 140px;
+    padding-left: 10px; 
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-top: 120px;
+    margin-left: 40px;
+    margin-bottom: -250px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
 
 }
 
 .skills-container h4, .skills-container h5, .skills-container h6, .skills-container h7, .skills-container h8 {
-    margin-top: 10px; /* Adjust this margin to move headers down */
-    margin-bottom: 10px;
-    margin-left: 50px;
+    margin-top: -50px; 
+    margin-left: -750px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
 }
