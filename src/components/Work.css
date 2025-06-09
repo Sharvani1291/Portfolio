@@ -1,0 +1,211 @@
+/* Experience Section */  
+#work {
+    background-color: beige; /* Beige background */
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 5%;
+    min-height: fit-content;
+}
+
+.section-header {
+    display: flex;               /* ✅ Aligns text and emoji inline */
+    align-items: center;
+    gap: 10px;
+    font-size: 3rem;
+    color: #ffcc00; /* Green color for the title */
+    margin-bottom: 500px;
+    margin-inline-end: -200px;
+    margin-inline-start: 1px;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .experience-emoji {
+    position: relative;
+    top: -7px;
+  }
+
+/* Content Wrapper (adjusted spacing) */
+.content-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1700px;
+    margin: auto;
+    gap: 10px; /* Balanced spacing between items */
+    padding-top: 90px;
+    transform: translateX(-10%);
+  }
+  
+  /* Timeline line through center */
+  .content-wrapper::before {
+    content: "";
+    position: absolute;
+    left: 45%;
+    top: 22%;
+    width: 3px;
+    height: 65%;
+    background-color: #8c4863;
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+  
+  /* Shared Experience Item Styling */
+  .experience-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Alternate Layout */
+  .experience-item.left {
+    flex-direction: row-reverse;
+  }
+  
+  .experience-item.right {
+    flex-direction: row;
+  }
+
+  .experience-item.left {
+    padding-right: 52%;
+
+  }
+  
+  .experience-item.right {
+    padding-left: 40%;
+  }
+  
+  /* Logo Styling */
+  .logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    z-index: 2;
+  }
+  
+  .company-logo {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: contain;
+    background-color: #fff;
+    padding: 2px;
+    box-shadow: 0 0 0 3px #8c4863;
+    transform: translateX(-50%);
+    position: absolute;
+    left: 45%;
+  }
+  
+  /* Experience Details */
+  .experience-details {
+    background-color: #8c4863;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+  }
+  
+  .company-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 5px;
+  }
+  
+  .position-title {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 3px;
+  }
+  
+  .work-duration {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #d1c4c4;
+    margin-bottom: 10px;
+  }
+  
+  .description-container ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+  
+  .description-container li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  
+  /* Responsive Tweaks */
+  @media (max-width: 768px) {
+    .experience-item {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .experience-item.left,
+    .experience-item.right {
+      flex-direction: column;
+    }
+  
+    .company-logo {
+      left: 0;
+      transform: none;
+      margin-bottom: 10px;
+    }
+  
+    .experience-details {
+      max-width: 90%;
+    }
+  }
+  
+  .experience-details {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .experience-item:hover .experience-details {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .experience-details {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .experience-details.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Optional delay for staggering */
+  .experience-item:nth-of-type(2) .experience-details {
+    animation-delay: 1.6s;
+  }
+  .experience-item:nth-of-type(3) .experience-details {
+    animation-delay: 2.0s;
+  }
+    

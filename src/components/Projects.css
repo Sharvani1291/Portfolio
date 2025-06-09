@@ -1,0 +1,123 @@
+/* Projects Section */
+#projects {
+    background-color: #8c4863; /* Beige background */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 5%; /* Fixed padding for the section */
+    min-height: fit-content;
+}
+.projects_header {
+    font-size: 3rem;
+    color: #ffcc00;
+    margin-inline-end: -200px;
+    margin-inline-start: 1px;
+    white-space: nowrap;
+    text-align: left;
+}
+  
+.projects-emoji {
+    position: relative;
+    top: -7px; /* Moves the emoji up */
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 10px;
+    justify-content: center; /* ✅ centers the grid items */
+    padding: 0 70px;          /* ✅ optional horizontal padding */
+    width: 100%;  
+}
+
+.project-box {
+    background-color: beige;
+    border: 1px solid white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    padding: 25px;
+    transition: 
+      transform 0.3s ease, 
+      box-shadow 0.3s ease, 
+      background-color 0.3s ease;
+    margin-block-start: 100px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  /* Only animate when visible class is added */
+.project-box.visible {
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .project-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 25px rgba(255, 255, 255, 0.4);
+    background-color: #f9f4d7;
+  }
+  .project-box:nth-child(1) {
+    animation-delay: 0.4s;
+  }
+  .project-box:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+  .project-box:nth-child(3) {
+    animation-delay: 1.2s;
+  }
+  .project-box:nth-child(4) {
+    animation-delay: 1.6s;
+  }
+  .project-box:nth-child(5) {
+    animation-delay: 2.0s;
+  }
+  .project-box:nth-child(6) {
+    animation-delay: 2.4s;
+  }
+  .project-box:nth-child(7) {
+    animation-delay: 2.8s;
+  }
+  .project-box:nth-child(8) {
+    animation-delay: 3.2s;
+  }
+
+.project-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.project-duration {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.project-description {
+    font-size: 16px;
+    color: #555;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    text-align: justify;
+}
+
+.project-skills {
+    font-size: 14px;
+    color: #333;
+    padding-left: 5px;
+    text-align: justify;
+}
+
+.project-skills strong {
+    font-weight: bold;
+}

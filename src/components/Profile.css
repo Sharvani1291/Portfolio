@@ -1,0 +1,40 @@
+/* Styling for the About Me Section */
+#profile {
+    background-color: #8c4863; /* Beige background */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 5%; /* Fixed padding for the section */
+    min-height: fit-content;
+}
+
+.about-me-title {
+    font-size: 3rem;
+    color: #ffcc00; /* Green color for the title */
+    margin-bottom: 500px;
+    margin-inline-end: -200px;
+    margin-inline-start: 1px;
+    white-space: nowrap;
+    text-align: left;
+  }
+
+.about-emoji {
+    position: relative;
+    top: -7px; /* Moves the emoji up */
+}
+.about-me-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    width: 100%;
+    text-align: justify;
+    display: block;
+    margin-bottom: -50px;
+    margin-top: 10px;
+    margin-left: -80px;
+    color: rgb(252, 224, 224);
+}
+
+  .highlight {
+    font-weight: bold;
+    color: #333; /* Dark color for highlighted text */
+  }

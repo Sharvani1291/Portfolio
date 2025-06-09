@@ -1,0 +1,218 @@
+/* ====== General Page Setup ====== */
+body {
+    background-color: beige;
+  }
+  
+  #skills {
+    background-color: #8c4863;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 5% 0px;
+    min-height: auto;
+    gap: 0.1px;
+    margin-bottom: 0;
+  }
+  
+  /* ====== Section Header ====== */
+  .skills_header {
+    font-size: 3rem;
+    color: #ffcc00;
+    text-align: left;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    line-height: -5;
+  }
+  
+  .projects-emoji {
+    position: relative;
+    top: -7px;
+  }
+  
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+  
+  /* ====== Wrapper Containers ====== */
+  .skills-container-wrapper {
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    transform: translateY(-80px);
+  }
+  
+  .skills-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 10px;
+    min-height: auto;
+  }
+  
+  /* ========== Category Wrapper ========== */
+  .category,
+  .category0,
+  .category1,
+  .category2,
+  .category3,
+  .category4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: fit-content;
+    align-self: flex-start;
+  }
+  
+  /* ========== Category Headers ========== */
+  .category h4,
+  .category0 h4,
+  .category1 h4,
+  .category2 h4,
+  .category3 h4,
+  .category4 h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e3dcdc;
+    margin: 0;
+    padding: 0;
+    white-space: normal;
+    text-align: center;
+    max-width: 180px;
+    line-height: 1.3;
+    min-height: 125px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  /* ====== Skill Grid Base Style ====== */
+  .skill,
+  .tech-skill,
+  .tech-skill-2,
+  .tech-skill-3,
+  .tech-skill-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .tech-skill-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, auto);
+    row-gap: 10px;
+    column-gap: 10px;
+    justify-items: center;
+  }
+  
+  /* ====== Skill Item Base Style ====== */
+  .skill-item,
+  .tech-skill-item,
+  .tech-skill-item-2,
+  .tech-skill-item-3,
+  .tech-skill-item-4 {
+    text-align: center;
+    justify-items: center;
+    padding: 15px;
+    border: 2px solid #8c4863;
+    border-radius: 10px;
+    background-color: #8c4863;
+    box-shadow: 0 4px 10px rgba(185, 227, 133, 0.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  /* Specific grid layout per category */
+  .skill {
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 10px;
+  }
+  .tech-skill {
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 10px;
+  }
+  .tech-skill-3 {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 10px;
+  }
+  .tech-skill-4 {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 10px;
+  }
+  
+  .skill-item p,
+  .tech-skill-item p,
+  .tech-skill-item-2 p,
+  .tech-skill-item-3 p,
+  .tech-skill-item-4 p {
+    font-weight: bold;
+    color: #d1c4c4;
+    text-wrap: nowrap;
+  }
+  
+  /* ====== Icons (Image) ====== */
+  .skill img,
+  .tech-skill-item img,
+  .tech-skill-item-2 img,
+  .tech-skill-item-3 img,
+  .tech-skill-item-4 img {
+    width: 40px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .skill img:hover,
+  .tech-skill-item img:hover,
+  .tech-skill-item-2 img:hover,
+  .tech-skill-item-3 img:hover,
+  .tech-skill-item-4 img:hover {
+    transform: scale(1.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ====== Optional Text Position Adjustments ====== */
+  .federated-learning-text,
+  .kubernetes-text,
+  .android-studio-text,
+  .confluence-text,
+  .cicd-text,
+  .gcp-text {
+    position: relative;
+  }
+  
+  .federated-learning-text { left: -50px; }
+  .kubernetes-text { left: -5px; }
+  .android-studio-text { left: -5px; }
+  .confluence-text { left: -5px; }
+  .cicd-text { left: -80px; }
+  .gcp-text { left: -8px; }
+  
+  /* ====== Animation (only when visible) ====== */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .skill-item.visible,
+  .tech-skill-item.visible,
+  .tech-skill-item-2.visible,
+  .tech-skill-item-3.visible,
+  .tech-skill-item-4.visible {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
