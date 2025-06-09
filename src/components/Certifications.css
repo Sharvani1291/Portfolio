@@ -1,0 +1,111 @@
+#certifications {
+    background-color: beige; /* Beige background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 60px 5%; /* Fixed padding for the section */
+    min-height: fit-content;
+    gap: 20px;
+}
+  
+  .section-header {
+    font-size: 3rem;
+    color: #ffcc00; 
+    text-align: left;  
+    margin: 0;             /* ⛔ remove large margins */
+    padding: 0; 
+    white-space: nowrap;
+    text-align: left;
+  }
+  
+  .certificate-emoji {
+    position: relative;
+    top: -5px;
+  }
+  
+  .cert-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .cert-link-box {
+    display: inline-block; /* ✅ Makes the box only as wide as its content */
+    padding: 8px 16px;
+    background-color: #8c4863;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease;
+    margin-top: 12px;
+  }
+  
+  .cert-link-box:hover {
+    background-color: #8c4863;
+    text-decoration: underline;
+  }
+  
+  .cert-card {
+    display: flex;
+    flex-direction: row;
+    background-color: beige;
+    border: 2px solid #8c4863;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding: 20px 0px 20px 20px;
+    align-items: center;
+    width: fit-content; /* Ensures card isn't full width */
+    max-width: 90vw;     /* Prevents overflow on small screens */
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .cert-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cert-card-left {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .cert-image {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .cert-card-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .cert-card-right h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.4rem;
+  }
+  
+  .cert-card-right .org-name {
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .cert-card-right span {
+    font-size: 0.95rem;
+    color: #666;
+  }
+  

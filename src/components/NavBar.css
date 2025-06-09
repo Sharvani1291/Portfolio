@@ -1,0 +1,73 @@
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #673147;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+  }
+  
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffcc00;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    margin-right: 10px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+  
+  .nav-links a:hover {
+    color: #ffcc00;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .resume-link {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    gap: 10px; /* space between image and name */
+  }
+  
+  .logo-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Makes it a circle */
+    object-fit: cover;
+  }
+  
+/* Footer */
+footer {
+    background: #673147;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
