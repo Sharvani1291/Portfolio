@@ -44,10 +44,10 @@
 }
 
 .get-in-touch {
-    font-size: 1.8em;
+    font-size: 1.4em;
     font-weight: bold;
     color: #333;
-    margin-top: 80px; /* Space between roles and contact section */
+    margin-top: 60px; /* Space between roles and contact section */
     margin-bottom: 10px;
     top: 5%;
     text-decoration: underline;
@@ -57,14 +57,14 @@
 .contact-details {
     display: flex;
     justify-content: flex-start;
-    gap: 20px; /* Space between icons */
+    gap: 10px; /* Space between icons */
 }
 
 .contact-icon img {
-    width: 40px; /* Fixed size for the icons */
-    height: 40px;
-    transition: transform 0.3s ease; /* Smooth transition on hover */
-}
+    max-width: 40px;
+    height: auto;
+  }
+  
 
 .contact-icon img:hover {
     transform: scale(1.1); /* Slight zoom effect on hover */
@@ -84,7 +84,7 @@
     overflow: hidden;
     border-radius: 20px; /* Rounded corners */
     width: 100%; /* Allow the image to take up the full width */
-    max-width: 500px; /* Optional: Limit the max size of the photo */
+    max-width: 600px; /* Optional: Limit the max size of the photo */
     background-color: #8c4863;
 }
 
@@ -123,33 +123,8 @@
     }
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-    .home-container {
-        flex-direction: column; /* Stack the content vertically for small screens */
-        gap: 20px; /* Less space between sections */
-    }
-
-    .left-part, .right-part {
-        flex: none;
-        width: 100%;
-    }
-
-    .photo-container {
-        max-width: 80%; /* Make the photo smaller on smaller screens */
-    }
-
-    .contact-details {
-        flex-direction: column; /* Stack the icons vertically for smaller screens */
-    }
-
-    .contact-icon img {
-        width: 35px; /* Adjust icon size for small screens */
-        height: 35px;
-    }
-}
 .resume-container {
-    margin-top: 30px; /* Space above the resume box */
+    margin-top: 20px; /* Space above the resume box */
 }
 
 .resume-box {
@@ -169,3 +144,119 @@
     background-color: #8c4863; /* Light gray background on hover */
     transform: scale(1.05); /* Slight zoom effect on hover */
 }
+
+/* Desktop-first: show profile.jpg */
+.desktop-photo {
+    display: block;
+  }
+  
+  .mobile-photo {
+    display: none;
+  }
+
+@media (max-width: 768px) {
+    #home {
+      padding: 30px 20px;
+      overflow-x: hidden; /* 🔧 Fix right scroll */
+    }
+    .desktop-photo {
+        display: none;
+      }
+    
+      .mobile-photo {
+        display: block;
+      }
+  
+    .home-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      width: 100%; /* 🔧 Prevent scroll overflow */
+    }
+  
+    .right-part {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start; /* 🔧 Align photo to left */
+        padding: 0 10px; /* Aligns with intro text */
+        margin-top: 0;
+      }
+      
+  
+      .photo-container {
+        max-width: 220px;
+        width: 100%;
+      }
+      
+  
+    .left-part {
+        width: 100%;
+        text-align: left; /* 🔧 Align text to the left */
+        align-items: flex-start; /* 🔧 Align inner items left */
+        padding: 0 10px; /* Optional: add padding to match "Hello" offset */
+      }      
+  
+    .intro h1 {
+      font-size: 2em;
+    }
+  
+    .roles {
+      font-size: 1.2em;
+      margin-top: 8px;
+      white-space: normal;
+    }
+  
+    .get-in-touch {
+      font-size: 1.4em;
+      margin-top: 30px;
+    }
+  
+    .contact-details {
+        flex-direction: row;
+        justify-content: flex-start; /* 🔧 Align icons left */
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+      
+  
+    .contact-icon img {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .resume-container {
+      margin-top: 25px;
+    }
+  
+    .resume-box {
+      font-size: 1.1em;
+      padding: 8px 16px;
+    }
+    /* Default photo container */
+.photo-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    background-color: #8c4863;
+  }
+  
+  /* Image inside photo-container */
+  .photo-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform 1.5s ease, opacity 1.5s ease;
+  }
+  
+  /* Optional zoom on hover */
+  .photo-container:hover img {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  
+  }
+  

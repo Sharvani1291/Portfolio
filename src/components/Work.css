@@ -209,3 +209,95 @@
     animation-delay: 2.0s;
   }
     
+  @media (max-width: 768px) {
+    #work {
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 15px;
+    }
+  
+    #work .section-header {
+      font-size: 2rem;
+      margin: 5px 0 10px 0px;
+      text-align: left;
+      display: flex;
+      align-items: left;
+      gap: 8px;
+      color: #ffcc00;
+    }
+       
+    
+    .logo-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin: 25px 0;
+    }
+    
+    .logo-wrapper::after {
+      content: "";
+      position: absolute;
+      top: 60px; /* from bottom of logo */
+      width: 2px;
+      height: 50px; /* length to description box */
+      background-color: #8c4863;
+    }
+    
+  
+    .content-wrapper {
+      transform: none;
+      padding-top: 0;
+      max-width: 100%;
+      gap: 40px;
+    }
+  
+    /* Remove center line */
+    .content-wrapper::before {
+      display: none;
+    }
+  
+    .experience-item {
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      gap: 15px;
+    }
+  
+    .experience-item.left,
+    .experience-item.right {
+      flex-direction: column;
+      padding: 0;
+    }
+  
+    .company-logo {
+      position: static;
+      transform: none;
+      width: 60px;
+      height: 60px;
+      box-shadow: 0 0 0 3px #8c4863;
+    }
+  
+    .experience-details {
+      max-width: 95%;
+      text-align: left;
+      padding: 18px;
+    }
+  
+    .company-name {
+      font-size: 1.1rem;
+    }
+  
+    .position-title {
+      font-size: 1rem;
+    }
+  
+    .work-duration {
+      font-size: 0.9rem;
+    }
+  
+    .description-container li {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  }
+  
