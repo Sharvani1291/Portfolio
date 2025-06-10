@@ -88,7 +88,7 @@ const Skills = () => {
     <section id="skills" ref={sectionRef}>
       <div className="page-break"></div>
       <h1 className="skills_header">
-        My Skills <span className="projects-emoji">⚙️</span>
+        My Skills <span className="skills-emoji">⚙️</span>
       </h1>
 
       <div className="skills-container-wrapper">

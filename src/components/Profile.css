@@ -10,8 +10,7 @@
 
 .about-me-title {
     font-size: 3rem;
-    color: #ffcc00; /* Green color for the title */
-    margin-bottom: 500px;
+    color: #ffcc00;
     margin-inline-end: -200px;
     margin-inline-start: 1px;
     white-space: nowrap;
@@ -28,8 +27,7 @@
     width: 100%;
     text-align: justify;
     display: block;
-    margin-bottom: -50px;
-    margin-top: 10px;
+    margin-top: -20px;
     margin-left: -80px;
     color: rgb(252, 224, 224);
 }
@@ -38,3 +36,11 @@
     font-weight: bold;
     color: #333; /* Dark color for highlighted text */
   }
+
+  @media (max-width: 768px) {
+    .about-me-title {
+      font-size: 2rem;
+      text-align: center;
+    }
+  }
+  

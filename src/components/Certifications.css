@@ -109,3 +109,51 @@
     color: #666;
   }
   
+  @media (max-width: 768px) {
+    #certifications {
+      flex-direction: column;
+      padding: 40px 10px;
+      gap: 30px;
+    }
+  
+    .section-header {
+      font-size: 2rem;
+      text-align: center;
+    }
+  
+    .cert-card {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      width: 100%;
+      max-width: 90%;
+    }
+  
+    .cert-card-left {
+      padding-right: 0;
+      margin-bottom: 15px;
+    }
+  
+    .cert-image {
+      max-width: 150px;
+    }
+  
+    .cert-card-right {
+      align-items: center;
+      text-align: center;
+    }
+  
+    .cert-card-right h3 {
+      font-size: 1.2rem;
+    }
+  
+    .cert-card-right span {
+      font-size: 0.9rem;
+    }
+  
+    .cert-link-box {
+      font-size: 0.95rem;
+      padding: 6px 14px;
+    }
+  }
+  

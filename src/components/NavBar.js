@@ -1,35 +1,45 @@
 // src/components/NavBar.js
-import React from 'react';
-import './NavBar.css'; // or include this in App.css if you're combining styles
+import React, { useState } from 'react';
+import './NavBar.css';
 
 const NavBar = () => {
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <nav>
-      <div className="logo">
-        <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt="Logo" className="logo-image" />
-        Sharvani Chelumalla 
-        <span className="animated-icons">
-          <span>✨</span>
-        </span>
-      </div>
-      <div className="nav-right">
-        <div className="nav-links">
-          <a href="#home">Home🏠</a>
-          <a href="#profile">Profile👩🏻‍💻</a>
-          <a href="#work">Experience💼</a>
-          <a href="#projects">Projects📚</a>
-          <a href="#certifications">Certifications📜</a>
-          <a href="#skills">Skills⚙️</a> 
-          <span className="delimiter">|</span>
+      {/* NEW: Wrap logo and hamburger in a flex container */}
+      <div className="nav-top-row">
+        <div className="logo">
+          <img
+            src={`${process.env.PUBLIC_URL}/images/logo.png`}
+            alt="Logo"
+            className="logo-image"
+          />
+          Sharvani Chelumalla
+          <span className="animated-icons">
+            <span>✨</span>
+          </span>
         </div>
-        <a
-          href="/Sharvani_Chelumalla_Resume_Feb.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="resume-link"
+
+        <div
+          className="hamburger"
+          onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
         >
-          Resume⬇️
-        </a>
+          <div className="bar" />
+          <div className="bar" />
+          <div className="bar" />
+        </div>
+      </div>
+
+      <div className={`nav-right ${isMobileMenuOpen ? 'open' : ''}`}>
+      <div className="nav-links">
+        <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home🏠</a>
+        <a href="#profile" onClick={() => setMobileMenuOpen(false)}>Profile👩🏻‍💻</a>
+        <a href="#work" onClick={() => setMobileMenuOpen(false)}>Experience💼</a>
+        <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects📚</a>
+        <a href="#certifications" onClick={() => setMobileMenuOpen(false)}>Certifications📜</a>
+        <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Skills⚙️</a>
+      </div>
       </div>
     </nav>
   );
