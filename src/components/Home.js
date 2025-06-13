@@ -8,7 +8,7 @@ const Home = () => {
       <div className="home-container">
         {/* PHOTO FIRST — for better mobile stacking */}
         <div className="right-part">
-          <div className="photo-container">
+          <div className="photo-container  photo-slide-in">
             {/* Desktop photo */}
             <img
               className="desktop-photo"
@@ -33,12 +33,12 @@ const Home = () => {
               <span className="highlight">Sharvani here!</span>{' '}
               <span className="wave">👋</span>
             </h1>
-            <p className="roles">
+            <p className="roles  fade-slide-up">
               Data Engineer | Software Developer | Photographer | Editor
             </p>
           </div>
 
-          <div className="contact-container">
+          <div className="contact-container  fade-slide-up">
             <p className="get-in-touch">Get in Touch</p>
             <div className="contact-details">
               <a
@@ -75,7 +75,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="resume-container">
+          <div className="resume-container  fade-slide-up">
             <a
               href="/Sharvani_Chelumalla_Resume_Feb.pdf"
               download

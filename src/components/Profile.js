@@ -1,6 +1,6 @@
 // src/components/Profile.js
 import React from 'react';
-import './Profile.css'; // Optional if you're splitting styles
+import './Profile.css';
 
 const Profile = () => {
   return (
@@ -10,13 +10,13 @@ const Profile = () => {
       </h2>
       <p className="about-me-description">
         <br /><br /><br /><br />
-        I am a Master's student in <strong>Computer Science</strong> at the <strong>University of Georgia</strong> 🎓, currently in my final semester. My daily routine revolves around delivering tasks efficiently and staying updated with the latest tech trends. With a background in <strong>Electronics and Communication Engineering</strong>, I have always been fascinated by the intersection of hardware and software, which led me to explore <strong>Computer Science</strong>. I am deeply passionate about <strong>Federated Learning, Machine Learning, Data Engineering, and Software Development</strong>.
+        I recently graduated with a <strong>Master's degree in Computer Science</strong> from the <strong>University of Georgia</strong> 🎓. I'm passionate about delivering high-quality work and continuously learning the latest in tech. With a background in <strong>Electronics and Communication Engineering</strong>, my interest in the intersection of hardware and software naturally led me to explore <strong>Computer Science</strong> further. My key interests lie in <strong>Federated Learning, Machine Learning, Data Engineering, and Software Development</strong>.
         <br /><br />
-        Before moving to the <strong>USA for my Master's</strong> 🇺🇸, I gained 3 years of industry experience at <strong>Cognizant</strong> 💼, where I worked on large-scale software solutions and developed a strong foundation in <strong>data-driven applications</strong>. Currently, I am expanding my expertise as a <strong>Full-Time Co-op at Resolution Life</strong> 🔍, where I apply my technical skills to real-world challenges.
+        Before pursuing my Master's in the <strong>USA</strong> 🇺🇸, I gained 3 years of industry experience at <strong>Cognizant</strong> 💼, where I worked on enterprise-level software systems and built a solid foundation in <strong>data-centric development</strong>. During my graduate program, I also completed a <strong>Full-Time Co-op at Resolution Life</strong> 🔍, where I applied my skills to real-world business and data challenges, further refining my expertise in backend systems and cloud platforms.
         <br /><br />
-        I am deeply passionate about advancing my career in <strong>Cloud Technologies, Machine Learning, and AI</strong>. I am eager to contribute to <strong>cutting-edge innovations</strong> that push the boundaries of <strong>scalability, automation, and intelligent systems</strong>.
+        I’m now seeking full-time opportunities where I can contribute to <strong>Cloud Technologies, AI, and Machine Learning</strong>. I aim to be part of innovative teams pushing the boundaries of <strong>scalability, automation, and intelligent solutions</strong>.
         <br /><br />
-        Outside of work, I love <strong>Photography📸, Reading Spiritual Books📚, crafting intricate paper models ✂️, playing badminton 🏸 and chess ♟️</strong> as a creative outlet.
+        Outside of work, I enjoy <strong>Photography 📸, Reading Spiritual Books 📚, crafting paper models ✂️, and playing badminton 🏸 and chess ♟️</strong> as ways to stay creative and balanced.
       </p>
     </section>
   );

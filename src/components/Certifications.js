@@ -2,18 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './Certifications.css';
 
-const fadeInCert = {
-  hidden: { opacity: 0, y: 30 },
+const flipInCert = {
+  hidden: { opacity: 0, rotateY: 90, transformOrigin: 'left center', perspective: 1000 },
   visible: (i) => ({
     opacity: 1,
-    y: 0,
+    rotateY: 0,
+    transformOrigin: 'left center',
+    perspective: 1000,
     transition: {
       delay: i * 0.3,
-      duration: 0.6,
+      duration: 0.8,
       ease: 'easeOut',
     },
   }),
 };
+
 
 const Certifications = () => {
   const certificates = [
@@ -39,7 +42,7 @@ const Certifications = () => {
             key={index}
             className="cert-card"
             custom={index}
-            variants={fadeInCert}
+            variants={flipInCert}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
