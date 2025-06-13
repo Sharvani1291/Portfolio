@@ -7,33 +7,37 @@ const Work = () => {
   useEffect(() => {
     const section = sectionRef.current;
     const items = section?.querySelectorAll('.experience-details') || [];
-
+  
     const observer = new IntersectionObserver(
-      entries => {
+      (entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             items.forEach((item, index) => {
               setTimeout(() => {
                 item.classList.add('visible');
-              }, index * 400); // 400ms stagger per box
+              }, index * 400); // Stagger effect
             });
-            observer.disconnect(); // Trigger once
+            observer.unobserve(entry.target); // Stop after first trigger
           }
         });
       },
-      { threshold: 0.2 }
+      {
+        root: null,
+        threshold: 0.4, // Trigger when 40% of the section is visible
+      }
     );
-
+  
     if (section) {
       observer.observe(section);
     }
-
+  
     return () => {
       if (section) {
         observer.unobserve(section);
       }
     };
   }, []);
+  
 
   const experienceData = [
     {
