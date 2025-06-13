@@ -1,6 +1,20 @@
 // src/components/Education.js
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Education.css';
+
+const fadeInUpEdu = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.3,
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  }),
+};
 
 const Education = () => {
   const educationData = [
@@ -38,13 +52,21 @@ const Education = () => {
 
       <div className="education-wrapper">
         {educationData.map((edu, index) => (
-          <div className="edu-card" key={index}>
+          <motion.div
+            className="edu-card"
+            key={index}
+            custom={index}
+            variants={fadeInUpEdu}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <div className="edu-header">
               <img src={edu.logo} alt={`${edu.institution} logo`} className="edu-logo" />
               <div className="edu-info">
                 <h2 className="institution">{edu.institution}</h2>
                 <div className="edu-location">
-                    <span>📍 {edu.location}</span>
+                  <span>📍 {edu.location}</span>
                 </div>
               </div>
             </div>
@@ -53,7 +75,12 @@ const Education = () => {
               <span>🎓 {edu.date}</span>
             </div>
             <div className="gpa-bar">
-              <div className="progress-bar" style={{ width: `${parseFloat(edu.gpa.split(" ")[0]) * 100 / parseFloat(edu.gpa.split("/")[1])}%` }}></div>
+              <div
+                className="progress-bar"
+                style={{
+                  width: `${parseFloat(edu.gpa.split(" ")[0]) * 100 / parseFloat(edu.gpa.split("/")[1])}%`,
+                }}
+              ></div>
               <p className="gpa-text">{edu.gpa}</p>
             </div>
             <ul className="achievements">
@@ -61,7 +88,7 @@ const Education = () => {
                 <li key={idx}>• {item}</li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

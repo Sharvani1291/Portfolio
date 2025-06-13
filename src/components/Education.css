@@ -38,6 +38,7 @@
     box-shadow: 0 0 20px rgba(120, 113, 113, 0.4);
     transition: transform 0.5s;
     min-height: 380px;
+    will-change: transform, opacity;
   }
   
   .edu-card:hover {

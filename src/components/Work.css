@@ -49,7 +49,7 @@
     left: 45%;
     top: 22%;
     width: 3px;
-    height: 65%;
+    height: 63%;
     background-color: #8c4863;
     transform: translateX(-50%);
     z-index: 0;
@@ -75,7 +75,7 @@
   }
 
   .experience-item.left {
-    padding-right: 52%;
+    padding-right: 50%;
 
   }
   
@@ -113,10 +113,31 @@
     border-radius: 12px;
     max-width: 600px;
     width: 100%;
+    flex: 0 0 350px;
+    min-height: 240px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 1;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.8s ease forwards;
   }
-  
+
+.experience-details.visible {
+  animation-delay: 2s; /* Let JS stagger the delay */
+}
+
+/* Keyframes for reveal effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
   .company-name {
     font-size: 1.2rem;
     font-weight: bold;
@@ -168,6 +189,7 @@
   
     .experience-details {
       max-width: 90%;
+      min-height: unset;
     }
   }
   
@@ -180,16 +202,6 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
   .experience-details {
     opacity: 0;
     transform: translateY(40px);
@@ -283,6 +295,17 @@
       padding: 18px;
     }
   
+    .experience-details {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .experience-details.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
     .company-name {
       font-size: 1.1rem;
     }

@@ -64,13 +64,16 @@
     max-width: 90vw;     /* Prevents overflow on small screens */
     margin: 0 auto;
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: perspective(1000px) rotateY(90deg);
+    transform-origin: left center;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;    
   }
   
   .cert-card.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: perspective(1000px) rotateY(0deg);
   }
 
   .cert-card-left {
