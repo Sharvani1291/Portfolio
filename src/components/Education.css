@@ -1,0 +1,213 @@
+/* src/components/Education.css */
+
+#education {
+    background-color: beige;
+    display: flex;
+    flex-direction: column;       /* Stack children vertically */
+    align-items: center;          /* Center all content horizontally */
+    padding: 60px 5%;
+    min-height: fit-content;
+  }
+  
+  
+  .education-title {
+    font-size: 3rem;
+    color: #ffcc00;
+    text-align: left;
+    align-self: flex-start;       /* Align only title to the left */
+    padding-left: 0.5%;
+  }
+  
+  .education-wrapper {
+    display: flex;
+    flex-direction: row;         /* Arrange items horizontally */
+    justify-content: center;     /* Center the items horizontally */
+    align-items: flex-start;
+    gap: 50px;
+    flex-wrap: nowrap; 
+    padding-top: 50px;
+}
+
+  .edu-card {
+    background: #8c4863;
+    border-radius: 90px;
+    padding: 60px;
+    padding-right: 70px;
+    width: 110%;
+    max-width: 700px;
+    box-shadow: 0 0 20px rgba(120, 113, 113, 0.4);
+    transition: transform 0.5s;
+    min-height: 380px;
+  }
+  
+  .edu-card:hover {
+    transform: translateY(-7px);
+  }
+  
+  .edu-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .edu-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: white;
+    object-fit: contain;
+  }
+  
+  .edu-info .institution {
+    color: #ffcc00;
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .edu-info .edu-location {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .school-label {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  
+  .degree {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 15px 0 15px;
+    color: white;
+  }
+  
+  .edu-date {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .gpa-bar {
+    background: black;
+    height: 10px;
+    border-radius: 5px;
+    position: relative;
+    margin: 10px 0 30px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background: beige;
+    border-radius: 5px;
+  }
+  
+  .gpa-text {
+    text-align: right;
+    font-size: 0.95rem;
+    margin-top: 4px;
+    color: white;
+  }
+  
+  .achievements {
+    list-style: none;
+    padding-left: 0;
+    padding-bottom: 0px;
+    margin-top: 10px;
+  }
+  
+  .achievements li {
+    margin-bottom: 6px;
+    color: white;
+    font-size: 0.80rem;
+  }
+  
+/* ===================== Responsive (Mobile) ===================== */
+@media screen and (max-width: 768px) {
+    .education-title {
+      font-size: 2.2rem;
+      text-align: center;
+      align-self: center;
+      padding-left: 0;
+    }
+  
+    .education-wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      padding-top: 30px;
+    }
+  
+    .edu-card {
+      width: 90%;
+      max-width: none;
+      padding: 40px 30px;
+      border-radius: 30px;
+      min-height: auto;
+    }
+  
+    .edu-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .edu-logo {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .edu-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+  
+    .edu-info .institution {
+      font-size: 1.1rem;
+      text-align: center;
+    }
+  
+    .edu-location {
+      font-size: 0.95rem;
+      color: white;
+      margin-top: 5px;
+      text-align: center;
+    }
+  
+    .degree {
+      text-align: center;
+      font-size: 1.1rem;
+    }
+  
+    .edu-date {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+  
+    .gpa-bar {
+      margin: 10px auto 20px;
+    }
+  
+    .gpa-text {
+      text-align: center;
+      font-size: 0.9rem;
+      color: white;
+    }
+  
+    .achievements li {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      text-align: left;
+    }
+  }
+  

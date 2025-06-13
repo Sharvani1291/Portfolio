@@ -1,15 +1,17 @@
 /* Home Section */
 #home {
-    background-color: #f5f5dc; /* Beige background */
+    background-color: transparent; /* Beige background */
+    position: relative;
     display: flex;
     justify-content: center; /* Center the content horizontally */
     align-items: center; /* Center the content vertically */
     padding: 40px 5%;
-    min-height: fit-content;
+    overflow: hidden;
 }
 
 .home-container {
     display: flex;
+    z-index: 1;
     width: 100%; /* Full width of the section */
     justify-content: space-between; /* Space between left and right parts */
     gap: 50px; /* Space between the two parts */
@@ -157,6 +159,7 @@
 @media (max-width: 768px) {
     #home {
       padding: 30px 20px;
+      position: relative;
       overflow-x: hidden; /* 🔧 Fix right scroll */
     }
     .desktop-photo {
