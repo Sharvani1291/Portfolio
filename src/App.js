@@ -9,12 +9,12 @@ import Work from './components/Work';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Skills from './components/Skills';
+import Education from './components/Education';
 
 function App() {
   return (
     <>
       <NavBar />
-
       <div id="scroll-container">
         <Home />
         <Profile />
@@ -22,6 +22,7 @@ function App() {
         <Projects />
         <Certifications />
         <Skills />
+        <Education />
       </div>
 
       <footer>
