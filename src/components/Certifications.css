@@ -61,25 +61,22 @@
   }
   
   .cert-card {
-    display: flex;
     flex-direction: row;
-    background-color: beige;
-    border: 2px solid #8c4863;
+    background-color: #8c4863;
+    border: 2px solid beige;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    padding: 20px 0px 20px 20px;
+    box-shadow: 0 6px 20px rgba(244, 236, 236, 0.08);
+    padding: 30px 40px;
     align-items: center;
-    width: fit-content; /* Ensures card isn't full width */
-    max-width: 90vw;     /* Prevents overflow on small screens */
+    width: 100%;
+    max-width: 1100px;       /* ✅ increased width */
     margin: 0 auto;
     opacity: 0;
     transform: perspective(1000px) rotateY(90deg);
     transform-origin: left center;
     transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;    
   }
+  
   
   .cert-card.visible {
     opacity: 1;
@@ -92,8 +89,8 @@
   }
   
   .cert-image {
-    width: 100%;
-    max-width: 200px;
+    width: 300%;
+    max-width: 240px;
     border-radius: 10px;
     object-fit: cover;
   }
@@ -102,24 +99,32 @@
     flex: 2;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    align-items: center;    /* ✅ centers horizontally */
+    justify-content: center;
+    text-align: center; 
+    gap: 15px;
   }
+  
   
   .cert-card-right h3 {
     margin: 0;
-    color: #333;
-    font-size: 1.4rem;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
   }
   
   .cert-card-right .org-name {
-    color: #555;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    width: 100%;
   }
   
+  
   .cert-card-right span {
-    font-size: 0.95rem;
-    color: #666;
+    font-size: 1.05rem;
+    color: white;
   }
   
   @media (max-width: 768px) {
