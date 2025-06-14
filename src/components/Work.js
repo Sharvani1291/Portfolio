@@ -1,13 +1,51 @@
+// src/components/Work.js
 import React, { useEffect, useRef } from 'react';
 import './Work.css';
 
 const Work = () => {
-  const sectionRef = useRef();
+  const sectionRef = useRef(null);
+  const vantaEffectRef = useRef(null);
+
+  useEffect(() => {
+    const loadVanta = async () => {
+      if (!window.VANTA || !window.VANTA.NET) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js';
+        script.async = true;
+        script.onload = () => {
+          if (window.VANTA && !vantaEffectRef.current) {
+            vantaEffectRef.current = window.VANTA.NET({
+              el: sectionRef.current,
+              color: 0x8c4863,            // Dusty rose
+              backgroundColor: 0xf5f5dc,  // Beige
+              points: 10.0,
+              maxDistance: 25.0,
+              spacing: 18.0,
+              showDots: false,
+              mouseControls: true,
+              touchControls: true,
+              scale: 1.0,
+              scaleMobile: 1.0,
+            });
+          }
+        };
+        document.body.appendChild(script);
+      }
+    };
+
+    loadVanta();
+
+    return () => {
+      if (vantaEffectRef.current) {
+        vantaEffectRef.current.destroy();
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
     const items = section?.querySelectorAll('.experience-details') || [];
-  
+
     const observer = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach(entry => {
@@ -15,29 +53,24 @@ const Work = () => {
             items.forEach((item, index) => {
               setTimeout(() => {
                 item.classList.add('visible');
-              }, index * 400); // Stagger effect
+              }, index * 400);
             });
-            observer.unobserve(entry.target); // Stop after first trigger
+            observer.unobserve(entry.target);
           }
         });
       },
       {
         root: null,
-        threshold: 0.4, // Trigger when 40% of the section is visible
+        threshold: 0.4,
       }
     );
-  
-    if (section) {
-      observer.observe(section);
-    }
-  
+
+    if (section) observer.observe(section);
+
     return () => {
-      if (section) {
-        observer.unobserve(section);
-      }
+      if (section) observer.unobserve(section);
     };
   }, []);
-  
 
   const experienceData = [
     {

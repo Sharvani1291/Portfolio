@@ -1,22 +1,57 @@
 // src/components/Home.js
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Home.css';
 
 const Home = () => {
+  const vantaRef = useRef(null);
+  const vantaEffectRef = useRef(null);
+
+  useEffect(() => {
+    const loadVanta = async () => {
+      if (!window.VANTA || !window.VANTA.NET) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js';
+        script.async = true;
+        script.onload = () => {
+          if (window.VANTA && !vantaEffectRef.current) {
+            vantaEffectRef.current = window.VANTA.NET({
+              el: vantaRef.current,
+              color: 0x8c4863,            // Dusty rose
+              backgroundColor: 0xf5f5dc,  // Light pastel background
+              points: 10.0,
+              maxDistance: 25.0,
+              spacing: 18.0,
+              showDots: false,
+              mouseControls: true,
+              touchControls: true,
+              scale: 1.0,
+              scaleMobile: 1.0,
+            });
+          }
+        };
+        document.body.appendChild(script);
+      }
+    };
+
+    loadVanta();
+
+    return () => {
+      if (vantaEffectRef.current) {
+        vantaEffectRef.current.destroy();
+      }
+    };
+  }, []);
+
   return (
-    <section id="home">
+    <section id="home" ref={vantaRef}>
       <div className="home-container">
-        {/* PHOTO FIRST — for better mobile stacking */}
         <div className="right-part">
-          <div className="photo-container  photo-slide-in">
-            {/* Desktop photo */}
+          <div className="photo-container photo-slide-in">
             <img
               className="desktop-photo"
               src={`${process.env.PUBLIC_URL}/images/My_Photo.jpg`}
               alt="Sharvani Chelumalla"
             />
-
-            {/* Mobile photo */}
             <img
               className="mobile-photo"
               src={`${process.env.PUBLIC_URL}/images/My_Photo.jpg`}
@@ -25,7 +60,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* INTRO, CONTACT, RESUME BELOW ON MOBILE */}
         <div className="left-part">
           <div className="intro">
             <h1>
@@ -33,12 +67,12 @@ const Home = () => {
               <span className="highlight">Sharvani here!</span>{' '}
               <span className="wave">👋</span>
             </h1>
-            <p className="roles  fade-slide-up">
-              Data Engineer | Software Developer | Photographer | Editor
+            <p className="roles fade-slide-up">
+              Data Engineer | Software Developer 
             </p>
           </div>
 
-          <div className="contact-container  fade-slide-up">
+          <div className="contact-container fade-slide-up">
             <p className="get-in-touch">Get in Touch</p>
             <div className="contact-details">
               <a
@@ -75,9 +109,9 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="resume-container  fade-slide-up">
+          <div className="resume-container fade-slide-up">
             <a
-              href="/Sharvani_Chelumalla_Resume_Feb.pdf"
+              href="/Sharvani_Resume_2025.pdf"
               download
               className="resume-box"
             >

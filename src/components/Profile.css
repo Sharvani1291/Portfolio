@@ -1,46 +1,147 @@
-/* Styling for the About Me Section */
+/* About Me Section Styling */
 #profile {
-    background-color: #8c4863; /* Beige background */
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 60px 5%; /* Fixed padding for the section */
-    min-height: fit-content;
+  background-color: transparent;
+  display: block;
+  padding: 60px 5% 20px;
 }
 
 .about-me-title {
-    font-size: 3rem;
-    color: #ffcc00;
-    margin-inline-end: -200px;
-    margin-inline-start: 1px;
-    white-space: nowrap;
-    text-align: left;
-  }
+  font-size: 3rem;
+  color: #ffcc00;
+  margin-inline-start: 1px;
+  white-space: nowrap;
+  text-align: left;
+}
 
 .about-emoji {
-    position: relative;
-    top: -7px; /* Moves the emoji up */
-}
-.about-me-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    width: 100%;
-    text-align: justify;
-    display: block;
-    margin-top: -20px;
-    margin-left: -80px;
-    color: rgb(252, 224, 224);
+  position: relative;
+  top: -7px;
 }
 
-  .highlight {
-    font-weight: bold;
-    color: #333; /* Dark color for highlighted text */
+.about-me-description {
+  font-size: 1.4rem;
+  line-height: 2.2;
+  width: 100%;
+  text-align: justify;
+  margin-top: -130px;
+  color: white;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #333;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.about-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;      /* ✅ Reset padding */
+  margin: 0 auto;  /* ✅ Center block horizontally */
+  width: 100%; 
+}
+
+.about-images img {
+  width: 200px;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.about-images img:hover {
+  transform: scale(1.05);
+}
+
+/* Individual image overrides */
+.about-images img:nth-child(1) {
+  width: 180px;
+  height: 480px;
+  margin-top: -120px;
+}
+.about-images img:nth-child(2) {
+  width: 240px;
+  height: 520px;
+  margin-top: -140px;
+}
+.about-images img:nth-child(3) {
+  width: 240px;
+  height: 440px;
+  margin-top: -110px;
+}
+.about-images img:nth-child(4) {
+  width: 240px;
+  height: 440px;
+  margin-top: -100px;
+}
+.about-images img:nth-child(5) {
+  width: 150px;
+  height: 450px;
+  margin-top: -120px;
+}
+
+/* ✅ Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-me-title {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0; /* ✅ Removes gap above/below title */
+    margin-bottom: -90px; /* ✅ Slight breathing room */
   }
 
-  @media (max-width: 768px) {
-    .about-me-title {
-      font-size: 2rem;
-      text-align: center;
-    }
+  .about-me-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-top: 0;  /* ✅ Reduces space between title and text */
+    padding: 0 10px;
+  }
+
+  .about-content {
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px; /* ✅ Reduce vertical spacing between elements */
+  }
+
+  .about-images {
+    padding-left: 0;
+    justify-content: center;
+    gap: 10px; /* ✅ Tighter spacing between icons */
+    margin-top: -200px; /* ✅ Pull icons closer */
+    margin-bottom: -200px;
+  }
+
+  .about-images img {
+    width: 20px;
+    height: auto;
+    margin-top: 0 !important;  /* ✅ Neutralize custom large margins */
+    margin-bottom: 0;
+  }
+
+  .about-images img:nth-child(2),
+  .about-images img:nth-child(3),
+  .about-images img:nth-child(4) {
+    width: 60px;
+  }
+
+  .about-images img:nth-child(5) {
+    width: 40px;
+  }
+  .about-images img:nth-child(1) {
+    width: 50px;
+  }
+  .about-images img:nth-child(4) {
+    padding-top: 70px;
   }
   
+}

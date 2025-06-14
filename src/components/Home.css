@@ -1,16 +1,19 @@
 /* Home Section */
 #home {
-    background-color: transparent; /* Beige background */
+    background-color: #faf3f0; /* Beige background */
     position: relative;
     display: flex;
     justify-content: center; /* Center the content horizontally */
     align-items: center; /* Center the content vertically */
     padding: 40px 5%;
     overflow: hidden;
+    min-height: 100vh;
+    z-index: 0;
 }
 
 .home-container {
     display: flex;
+    position: relative;
     z-index: 1;
     width: 100%; /* Full width of the section */
     justify-content: space-between; /* Space between left and right parts */
@@ -53,7 +56,7 @@
 
 @keyframes typing {
     from { width: 0 }
-    to { width: 60% } /* Or adjust to 100% if you want full name typed */
+    to { width: 100% } /* Or adjust to 100% if you want full name typed */
 }
 
 @keyframes caret-hide {
@@ -131,6 +134,7 @@
     height: auto;
     border-radius: 20px;
     object-fit: cover; /* Ensures the image fills the space while maintaining the aspect ratio */
+    image-rendering: auto;
     transition: transform 1.5s ease, opacity 1.5s ease; /* Reveal effect */
 }
 
