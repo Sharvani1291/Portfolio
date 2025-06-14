@@ -1,5 +1,5 @@
 // src/components/Projects.js
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './Projects.css';
 
@@ -17,8 +17,42 @@ const fadeInUp = {
 };
 
 const Projects = () => {
+  const vantaRef = useRef(null);
+  const vantaEffectRef = useRef(null);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js';
+    script.async = true;
+    script.onload = () => {
+      if (window.VANTA && !vantaEffectRef.current) {
+        vantaEffectRef.current = window.VANTA.FOG({
+          el: vantaRef.current,
+          mouseControls: true,
+          touchControls: true,
+          minHeight: 200.0,
+          minWidth: 200.0,
+          highlightColor: 0x8c4863,   // Plum highlight
+          midtoneColor: 0x8c4863,     // Plum midtone
+          lowlightColor: 0x3e1f2f,     // Deep maroon
+          baseColor: 0x1e0f18,         // Almost black background
+          blurFactor: 0.6,
+          speed: 2.7,
+          zoom: 0.9,
+        });
+      }
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      if (vantaEffectRef.current) {
+        vantaEffectRef.current.destroy();
+      }
+    };
+  }, []);
+
   return (
-    <section id="projects">
+    <section id="projects" ref={vantaRef}>
       <h1 className="projects_header">
         Projects <span className="projects-emoji">📚</span>
       </h1>

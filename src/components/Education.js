@@ -1,5 +1,5 @@
 // src/components/Education.js
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './Education.css';
 
@@ -17,6 +17,37 @@ const fadeInUpEdu = {
 };
 
 const Education = () => {
+  const vantaRef = useRef(null);
+  const vantaEffectRef = useRef(null);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js';
+    script.async = true;
+    script.onload = () => {
+      if (window.VANTA && !vantaEffectRef.current) {
+        vantaEffectRef.current = window.VANTA.NET({
+          el: vantaRef.current,
+          color: 0x8c4863,
+          backgroundColor: 0xf5f5dc,
+          points: 10.0,
+          maxDistance: 25.0,
+          spacing: 20.0,
+          showDots: false,
+          mouseControls: true,
+          touchControls: true,
+          scale: 1.0,
+          scaleMobile: 1.0,
+        });
+      }
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      if (vantaEffectRef.current) vantaEffectRef.current.destroy();
+    };
+  }, []);
+
   const educationData = [
     {
       institution: "University of Georgia",
@@ -27,27 +58,27 @@ const Education = () => {
       gpa: "3.54 / 4.00",
       achievements: [
         "Graduate Research Assistant – worked on federated learning framework.",
-        "Collaborated with staff to validate lighting fixture positions within the campus facilities app, ensuring accurate spatial data representation.",
-        "Supported the Facilities Management Division (FMD) Plans Room by organizing and updating architectural blueprints and campus infrastructure data."
+        "Collaborated with staff to validate lighting fixture positions within the campus facilities app.",
+        "Organized architectural blueprints and infrastructure data.",
       ]
     },
     {
       institution: "Vardhaman College of Engineering",
       logo: `${process.env.PUBLIC_URL}/images/vce.png`,
       degree: "B.Tech - Electronics and Communication Engineering",
-      location: "Hyderabad, Telangana, India",
+      location: "Hyderabad, India",
       date: "May 2020",
-      gpa: "9.5 / 10.00",
+      gpa: "8.71 / 10.00",
       achievements: [
-        "Completed projects involving signal processing and Embedded systems.",
-        "Coordinator for The Institution of Electronics and Telecommunications Engineers (IETE) student organization.",
-        "Achieved NPTEL certificate on op-amp applications."
+        "Projects on signal processing and Embedded systems.",
+        "IETE student organization coordinator.",
+        "Earned NPTEL certificate on op-amp applications.",
       ]
     }
   ];
 
   return (
-    <section id="education">
+    <section id="education" ref={vantaRef}>
       <h2 className="education-title">Education 🎓</h2>
 
       <div className="education-wrapper">

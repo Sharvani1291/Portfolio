@@ -39,7 +39,8 @@
     margin: auto;
     gap: 10px; /* Balanced spacing between items */
     padding-top: 90px;
-    transform: translateX(-10%);
+    transform: none; /* ✅ Remove horizontal shift */
+    margin: 0 auto;
   }
   
   /* Timeline line through center */
@@ -165,7 +166,7 @@
   }
   
   .description-container li {
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 8px;
   }

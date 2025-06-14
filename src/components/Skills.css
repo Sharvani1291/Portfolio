@@ -5,9 +5,9 @@ body {
   
   #skills {
     background-color: #8c4863;
-    display: flex;
+    display: block;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 60px 5% 0px;
     min-height: auto;
     gap: 0.1px;
@@ -19,6 +19,7 @@ body {
     font-size: 2.9rem;
     color: #ffcc00;
     text-align: left;
+    align-items: flex-start;
     white-space: nowrap;
     margin: 0;
     padding: 0;
