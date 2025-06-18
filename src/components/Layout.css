@@ -28,15 +28,15 @@ section h1, section p {
 }
 
 .animated-icons span:nth-child(1) {
-    animation-delay: 0s; /* First icon */
+    animation-delay: 0s; 
 }
 
 .animated-icons span:nth-child(2) {
-    animation-delay: 0.5s; /* Second icon */
+    animation-delay: 0.5s; 
 }
 
 .animated-icons span:nth-child(3) {
-    animation-delay: 1s; /* Third icon */
+    animation-delay: 1s; 
 }
 
 @keyframes float {
@@ -44,6 +44,6 @@ section h1, section p {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-5px); /* Moves the icons up slightly */
+        transform: translateY(-5px); 
     }
 }

@@ -1,6 +1,5 @@
-/* Experience Section */  
 #work {
-    background-color: beige; /* Beige background */
+    background-color: beige;
     display: flex;
     position: relative;
     justify-content: space-between;
@@ -10,11 +9,11 @@
 }
 
 .section-header {
-    display: flex;               /* ✅ Aligns text and emoji inline */
+    display: flex;          
     align-items: center;
     gap: 10px;
     font-size: 3rem;
-    color: #ffcc00; /* Green color for the title */
+    color: #ffcc00; 
     margin-bottom: 500px;
     margin-inline-end: -200px;
     margin-inline-start: 1px;
@@ -27,7 +26,6 @@
     top: -7px;
   }
 
-/* Content Wrapper (adjusted spacing) */
 .content-wrapper {
     position: relative;
     display: flex;
@@ -37,13 +35,13 @@
     width: 100%;
     max-width: 1700px;
     margin: auto;
-    gap: 10px; /* Balanced spacing between items */
+    gap: 10px; 
     padding-top: 90px;
-    transform: none; /* ✅ Remove horizontal shift */
+    transform: none;
     margin: 0 auto;
   }
   
-  /* Timeline line through center */
+
   .content-wrapper::before {
     content: "";
     position: absolute;
@@ -56,7 +54,7 @@
     z-index: 0;
   }
   
-  /* Shared Experience Item Styling */
+ 
   .experience-item {
     display: flex;
     align-items: center;
@@ -66,7 +64,7 @@
     position: relative;
   }
   
-  /* Alternate Layout */
+
   .experience-item.left {
     flex-direction: row-reverse;
   }
@@ -84,7 +82,7 @@
     padding-left: 40%;
   }
   
-  /* Logo Styling */
+
   .logo-wrapper {
     display: flex;
     justify-content: center;
@@ -105,8 +103,7 @@
     position: absolute;
     left: 45%;
   }
-  
-  /* Experience Details */
+
   .experience-details {
     background-color: #8c4863;
     color: white;
@@ -128,7 +125,6 @@
     transform: translateY(0);
   }
 
-/* Keyframes for reveal effect */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -171,7 +167,7 @@
     margin-bottom: 8px;
   }
   
-  /* Responsive Tweaks */
+
   @media (max-width: 768px) {
     .experience-item {
       flex-direction: column;
@@ -215,7 +211,6 @@
     transform: translateY(0);
   }
 
-  /* Optional delay for staggering */
   .experience-item:nth-of-type(2) .experience-details {
     animation-delay: 1.6s;
   }
@@ -251,9 +246,9 @@
     .logo-wrapper::after {
       content: "";
       position: absolute;
-      top: 60px; /* from bottom of logo */
+      top: 60px; 
       width: 2px;
-      height: 50px; /* length to description box */
+      height: 50px; 
       background-color: #8c4863;
     }
     
@@ -265,7 +260,7 @@
       gap: 40px;
     }
   
-    /* Remove center line */
+
     .content-wrapper::before {
       display: none;
     }

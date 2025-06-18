@@ -32,10 +32,10 @@ const Projects = () => {
           touchControls: true,
           minHeight: 200.0,
           minWidth: 200.0,
-          highlightColor: 0x8c4863,   // Plum highlight
-          midtoneColor: 0x8c4863,     // Plum midtone
-          lowlightColor: 0x3e1f2f,     // Deep maroon
-          baseColor: 0x1e0f18,         // Almost black background
+          highlightColor: 0x8c4863,  
+          midtoneColor: 0x8c4863,   
+          lowlightColor: 0x3e1f2f,   
+          baseColor: 0x1e0f18,      
           blurFactor: 0.6,
           speed: 2.7,
           zoom: 0.9,

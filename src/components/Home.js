@@ -16,8 +16,8 @@ const Home = () => {
           if (window.VANTA && !vantaEffectRef.current) {
             vantaEffectRef.current = window.VANTA.NET({
               el: vantaRef.current,
-              color: 0x8c4863,            // Dusty rose
-              backgroundColor: 0xf5f5dc,  // Light pastel background
+              color: 0x8c4863,            
+              backgroundColor: 0xf5f5dc,  
               points: 10.0,
               maxDistance: 25.0,
               spacing: 18.0,

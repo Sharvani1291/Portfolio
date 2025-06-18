@@ -1,10 +1,10 @@
 /* Home Section */
 #home {
-    background-color: #faf3f0; /* Beige background */
+    background-color: #faf3f0;
     position: relative;
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    justify-content: center;
+    align-items: center;
     padding: 40px 5%;
     overflow: hidden;
     min-height: 100vh;
@@ -15,13 +15,13 @@
     display: flex;
     position: relative;
     z-index: 1;
-    width: 100%; /* Full width of the section */
-    justify-content: space-between; /* Space between left and right parts */
-    gap: 50px; /* Space between the two parts */
+    width: 100%; 
+    justify-content: space-between; 
+    gap: 50px; 
 }
 
 .left-part {
-    flex: 1; /* Take up 50% of the width */
+    flex: 1; 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -41,7 +41,7 @@
     animation: typing 3.5s steps(25, end) forwards;
 }
 
-/* Caret handled only by ::after */
+
 .intro h1::after {
     content: '';
     position: absolute;
@@ -51,12 +51,12 @@
     width: 3px;
     background-color: rgba(0, 0, 0, 0.962);
     animation: caret-blink 1s step-end 5, caret-hide 0.5s ease-out forwards;
-    animation-delay: 0s, 3.5s; /* Hide caret after typing completes */
+    animation-delay: 0s, 3.5s; 
 }
 
 @keyframes typing {
     from { width: 0 }
-    to { width: 100% } /* Or adjust to 100% if you want full name typed */
+    to { width: 100% } 
 }
 
 @keyframes caret-hide {
@@ -73,32 +73,32 @@
 
 
 .highlight {
-    color: #333; /* Green highlight for the name */
+    color: #333; 
 }
 
 .roles {
     font-size: 1.5em;
     font-weight: bold;
-    color: rgb(7, 7, 59); /* Dark blue for roles */
+    color: rgb(7, 7, 59);
     margin-top: 10px;
-    white-space: nowrap; /* Keep roles in one line */
+    white-space: nowrap; 
 }
 
 .get-in-touch {
     font-size: 1.4em;
     font-weight: bold;
     color: #333;
-    margin-top: 60px; /* Space between roles and contact section */
+    margin-top: 60px;
     margin-bottom: 10px;
     top: 5%;
     text-decoration: underline;
 }
 
-/* Contact Details */
+
 .contact-details {
     display: flex;
     justify-content: flex-start;
-    gap: 10px; /* Space between icons */
+    gap: 10px; 
 }
 
 .contact-icon img {
@@ -108,14 +108,13 @@
   
 
 .contact-icon img:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+    transform: scale(1.1); 
 }
 
-/* Right Part: Photo */
 .right-part {
-    flex: 1; /* Take up 50% of the width */
+    flex: 1; 
     display: flex;
-    justify-content: center; /* Center the photo */
+    justify-content: center;
     align-items: flex-start;
     margin-top: 0px;
 }
@@ -123,9 +122,9 @@
 .photo-container {
     position: relative;
     overflow: hidden;
-    border-radius: 20px; /* Rounded corners */
-    width: 100%; /* Allow the image to take up the full width */
-    max-width: 600px; /* Optional: Limit the max size of the photo */
+    border-radius: 20px; 
+    width: 100%; 
+    max-width: 600px; 
     background-color: #8c4863;
 }
 
@@ -133,17 +132,17 @@
     width: 100%;
     height: auto;
     border-radius: 20px;
-    object-fit: cover; /* Ensures the image fills the space while maintaining the aspect ratio */
+    object-fit: cover; 
     image-rendering: auto;
-    transition: transform 1.5s ease, opacity 1.5s ease; /* Reveal effect */
+    transition: transform 1.5s ease, opacity 1.5s ease; 
 }
 
 .photo-container:hover img {
-    transform: scale(1.1); /* Slight zoom-in on hover */
+    transform: scale(1.1);
     opacity: 1;
 }
 
-/* Wave Animation */
+
 .wave {
     animation: wave-animation 1.5s infinite;
     display: inline-block;
@@ -166,28 +165,28 @@
 }
 
 .resume-container {
-    margin-top: 20px; /* Space above the resume box */
+    margin-top: 20px; 
 }
 
 .resume-box {
     display: inline-block;
-    padding: 10px 20px; /* Rectangular padding */
-    background-color: beige; /* White background for the box */
-    color: black; /* Black text color */
+    padding: 10px 20px; 
+    background-color: beige; 
+    color: black; 
     font-size: 1.5em;
     font-weight: bold;
-    border: 2px solid #333; /* Border around the box */
-    border-radius: 5px; /* Slightly rounded corners */
-    text-decoration: none; /* Remove underline from link */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+    border: 2px solid #333; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
 }
 
 .resume-box:hover {
-    background-color: #8c4863; /* Light gray background on hover */
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    background-color: #8c4863; 
+    transform: scale(1.05); 
 }
 
-/* Desktop-first: show profile.jpg */
+
 .desktop-photo {
     display: block;
   }
@@ -198,7 +197,7 @@
 
   .photo-slide-in {
     opacity: 0;
-    transform: translateY(-60px); /* Slide from above */
+    transform: translateY(-60px); 
     animation: slideDownPhoto 0.9s ease-out forwards;
     animation-delay: 0s;
   }
@@ -216,7 +215,7 @@
     animation: fadeSlideUp 2.2s ease-out forwards;
   }
   .fade-slide-up.photo {
-    animation-delay: 0.2s; /* ⏱️ Earlier than text */
+    animation-delay: 0.2s; 
   }  
   
   .fade-slide-up:nth-of-type(1) { animation-delay: 1s; }
@@ -235,7 +234,7 @@
     #home {
       padding: 30px 20px;
       position: relative;
-      overflow-x: hidden; /* 🔧 Fix right scroll */
+      overflow-x: hidden; 
     }
     .desktop-photo {
         display: none;
@@ -249,14 +248,14 @@
       flex-direction: column;
       align-items: center;
       gap: 30px;
-      width: 100%; /* 🔧 Prevent scroll overflow */
+      width: 100%; 
     }
   
     .right-part {
         width: 100%;
         display: flex;
-        justify-content: flex-start; /* 🔧 Align photo to left */
-        padding: 0 10px; /* Aligns with intro text */
+        justify-content: flex-start; 
+        padding: 0 10px; 
         margin-top: 0;
       }
       
@@ -269,9 +268,9 @@
   
     .left-part {
         width: 100%;
-        text-align: left; /* 🔧 Align text to the left */
-        align-items: flex-start; /* 🔧 Align inner items left */
-        padding: 0 10px; /* Optional: add padding to match "Hello" offset */
+        text-align: left; 
+        align-items: flex-start; 
+        padding: 0 10px; 
       }      
   
     .intro h1 {
@@ -291,7 +290,7 @@
   
     .contact-details {
         flex-direction: row;
-        justify-content: flex-start; /* 🔧 Align icons left */
+        justify-content: flex-start; 
         gap: 10px;
         margin-top: 15px;
         flex-wrap: wrap;
@@ -311,7 +310,7 @@
       font-size: 1.1em;
       padding: 8px 16px;
     }
-    /* Default photo container */
+    
 .photo-container {
     position: relative;
     overflow: hidden;
@@ -321,7 +320,7 @@
     background-color: #8c4863;
   }
   
-  /* Image inside photo-container */
+
   .photo-container img {
     width: 100%;
     height: auto;
@@ -330,7 +329,7 @@
     transition: transform 1.5s ease, opacity 1.5s ease;
   }
   
-  /* Optional zoom on hover */
+  
   .photo-container:hover img {
     transform: scale(1.05);
     opacity: 1;

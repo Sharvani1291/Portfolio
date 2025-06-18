@@ -58,15 +58,15 @@ const Education = () => {
       gpa: "3.54 / 4.00",
       achievements: [
         "Graduate Research Assistant – worked on federated learning framework.",
+        "Participated in coding projects and academic seminars.",
         "Collaborated with staff to validate lighting fixture positions within the campus facilities app.",
-        "Organized architectural blueprints and infrastructure data.",
       ]
     },
     {
       institution: "Vardhaman College of Engineering",
       logo: `${process.env.PUBLIC_URL}/images/vce.png`,
       degree: "B.Tech - Electronics and Communication Engineering",
-      location: "Hyderabad, India",
+      location: "Hyderabad, TS, India",
       date: "May 2020",
       gpa: "8.71 / 10.00",
       achievements: [

@@ -16,8 +16,8 @@ const Work = () => {
           if (window.VANTA && !vantaEffectRef.current) {
             vantaEffectRef.current = window.VANTA.NET({
               el: sectionRef.current,
-              color: 0x8c4863,            // Dusty rose
-              backgroundColor: 0xf5f5dc,  // Beige
+              color: 0x8c4863,           
+              backgroundColor: 0xf5f5dc,  
               points: 10.0,
               maxDistance: 25.0,
               spacing: 18.0,

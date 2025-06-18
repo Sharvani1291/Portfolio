@@ -1,9 +1,7 @@
-/* src/components/Education.css */
-
 #education {
     background-color: beige;
     display: flex;
-    flex-direction: column;       /* Stack children vertically */
+    flex-direction: column;  
     align-items: stretch;
     padding: 60px 5%;
   }
@@ -21,8 +19,8 @@
   
   .education-wrapper {
     display: flex;
-    flex-direction: row;         /* Arrange items horizontally */
-    justify-content: center;     /* Center the items horizontally */
+    flex-direction: row;       
+    justify-content: center;    
     align-items: flex-start;
     gap: 50px;
     flex-wrap: nowrap; 
@@ -130,7 +128,7 @@
     font-size: 0.80rem;
   }
   
-/* ===================== Responsive (Mobile) ===================== */
+/* Responsive (Mobile) */
 @media screen and (max-width: 768px) {
     .education-title {
       font-size: 2.2rem;
