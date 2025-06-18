@@ -1,5 +1,5 @@
 #certifications {
-  background-color: #f5f5dc; /* Beige background */
+  background-color: #f5f5dc;
   display: block;
   flex-direction: column;
   justify-content: center;
@@ -37,13 +37,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 120px); /* adjust this based on your title+padding */
-    padding-top: 40px; /* ensures space below title */
+    min-height: calc(100vh - 120px); 
+    padding-top: 40px;
   }
   
   
   .cert-link-box {
-    display: inline-block; /* ✅ Makes the box only as wide as its content */
+    display: inline-block; 
     padding: 8px 16px;
     background-color: #8c4863;
     color: white;
@@ -69,7 +69,7 @@
     padding: 30px 40px;
     align-items: center;
     width: 100%;
-    max-width: 1100px;       /* ✅ increased width */
+    max-width: 1100px;  
     margin: 0 auto;
     opacity: 0;
     transform: perspective(1000px) rotateY(90deg);
@@ -99,7 +99,7 @@
     flex: 2;
     display: flex;
     flex-direction: column;
-    align-items: center;    /* ✅ centers horizontally */
+    align-items: center;
     justify-content: center;
     text-align: center; 
     gap: 15px;
@@ -132,7 +132,7 @@
       display: block;
       padding: 40px 10px;
       gap: 30px;
-      min-height: fit-content; /* ✅ Shrinks to fit content height */
+      min-height: fit-content;
     }
   
     .section-header {
@@ -147,7 +147,7 @@
       align-items: center;
       justify-content: center;
       padding-top: 20px;
-      min-height: fit-content !important; /* ✅ Override large screen height */
+      min-height: fit-content !important; 
     }
   
     .cert-card {

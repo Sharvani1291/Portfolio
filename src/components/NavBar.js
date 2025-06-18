@@ -7,7 +7,6 @@ const NavBar = () => {
 
   return (
     <nav>
-      {/* NEW: Wrap logo and hamburger in a flex container */}
       <div className="nav-top-row">
         <div className="logo">
           <img

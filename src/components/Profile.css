@@ -45,8 +45,8 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 0;      /* ✅ Reset padding */
-  margin: 0 auto;  /* ✅ Center block horizontally */
+  padding: 0;     
+  margin: 0 auto; 
   width: 100%; 
 }
 
@@ -90,41 +90,40 @@
   margin-top: -120px;
 }
 
-/* ✅ Mobile Responsive Adjustments */
 @media (max-width: 768px) {
   .about-me-title {
     font-size: 2rem;
     text-align: center;
-    margin: 0; /* ✅ Removes gap above/below title */
-    margin-bottom: -90px; /* ✅ Slight breathing room */
+    margin: 0; 
+    margin-bottom: -90px; 
   }
 
   .about-me-description {
     font-size: 1rem;
     line-height: 1.8;
     text-align: justify;
-    margin-top: 0;  /* ✅ Reduces space between title and text */
+    margin-top: 0; 
     padding: 0 10px;
   }
 
   .about-content {
     align-items: center;
     padding: 0 10px;
-    gap: 10px; /* ✅ Reduce vertical spacing between elements */
+    gap: 10px; 
   }
 
   .about-images {
     padding-left: 0;
     justify-content: center;
-    gap: 10px; /* ✅ Tighter spacing between icons */
-    margin-top: -200px; /* ✅ Pull icons closer */
+    gap: 10px; 
+    margin-top: -200px; 
     margin-bottom: -200px;
   }
 
   .about-images img {
     width: 20px;
     height: auto;
-    margin-top: 0 !important;  /* ✅ Neutralize custom large margins */
+    margin-top: 0 !important;  
     margin-bottom: 0;
   }
 
