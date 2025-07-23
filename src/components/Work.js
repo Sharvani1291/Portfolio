@@ -92,8 +92,8 @@ const Work = () => {
       alt: 'UGA School of Computing Logo',
       company: 'UGA School of Computing',
       title: 'Research Assistant',
-      period: 'May 2024 - May 2025',
-      duration: '12 mos',
+      period: 'Aug 2023 - May 2025',
+      duration: '1yr 10mos',
       descriptions: [
         'Developed a scalable federated learning framework leveraging transient VMs and fault recovery.',
         'Led the SpotLight system for client clustering and bandwidth-aware aggregation.',
