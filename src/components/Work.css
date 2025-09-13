@@ -1,3 +1,4 @@
+/* Base Styles (Desktop) */
 #work {
   background-color: #f5f5dc;
   position: relative;
@@ -16,7 +17,7 @@
   text-align: center;
 }
 
-/* Wrapper with central timeline line */
+/* Wrapper with central timeline line (desktop only) */
 .content-wrapper {
   position: relative;
   display: flex;
@@ -26,7 +27,6 @@
   margin-top: 50px;
 }
 
-/* Vertical line down the middle */
 .content-wrapper::before {
   content: "";
   position: absolute;
@@ -43,7 +43,6 @@
 .experience-item {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
   width: 100%;
   margin-bottom: 60px;
   position: relative;
@@ -146,25 +145,113 @@
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
-
-@media (max-width: 900px) {
-  .content-wrapper::before {
-    left: 30px; 
-  }
-
-  .logo-wrapper {
-    left: 30px;
-    transform: none;
-  }
-
-  .experience-item {
+/* --------------------------- */
+/* Mobile / Small Screens <768px */
+/* --------------------------- */
+@media (max-width: 767px) {
+  .experience-item,
+  .experience-item.left,
+  .experience-item.right {
     flex-direction: column;
-    align-items: flex-start;
-    margin-left: 70px;
+    justify-content: flex-start;
+    align-items: center;
     padding: 0 !important;
+    text-align: center;
+  }
+
+  /* Remove central vertical line */
+  .content-wrapper::before {
+    display: none;
+  }
+
+  /* Logo on top */
+  .logo-wrapper {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-bottom: 5px;
+  }
+
+  /* Add small vertical line connecting logo to description */
+  .experience-details {
+    max-width: 90%;
+    position: relative;
+    margin-top: 0;
+  }
+
+  .experience-details::before {
+    content: "";
+    position: absolute;
+    top: -25px; /* from the top of the box to the logo */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 25px; /* length of the vertical connector */
+    background-color: #8c4863;
+  }
+}
+
+/* --------------------------- */
+/* Tablets / iPad 768px-1024px */
+/* --------------------------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .experience-item.left {
+    justify-content: flex-end;
+    padding-right: 35%;
+  }
+
+  .experience-item.right {
+    justify-content: flex-start;
+    padding-left: 35%;
   }
 
   .experience-details {
-    max-width: 100%;
+    max-width: 70%;
+    padding: 20px 25px;
+    position: relative;
+  }
+
+  .company-name {
+    font-size: 1.3rem;
+  }
+
+  .position-title {
+    font-size: 1.1rem;
+  }
+
+  .work-duration {
+    font-size: 0.85rem;
+  }
+
+  .description-container li {
+    font-size: 0.95rem;
+  }
+
+  .logo-wrapper {
+    width: 55px;
+    height: 55px;
+  }
+
+  .company-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* Remove central line */
+  .content-wrapper::before {
+    display: none;
+  }
+
+  /* Small vertical line connecting logo to description */
+  .experience-details::before {
+    content: "";
+    position: absolute;
+    top: -28px; /* slightly longer for tablet */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 28px;
+    background-color: #8c4863;
   }
 }
