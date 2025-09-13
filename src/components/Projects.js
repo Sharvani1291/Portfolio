@@ -32,10 +32,10 @@ const Projects = () => {
           touchControls: true,
           minHeight: 200.0,
           minWidth: 200.0,
-          highlightColor: 0x8c4863,  
-          midtoneColor: 0x8c4863,   
-          lowlightColor: 0x3e1f2f,   
-          baseColor: 0x1e0f18,      
+          highlightColor: 0x8c4863,
+          midtoneColor: 0x8c4863,
+          lowlightColor: 0x3e1f2f,
+          baseColor: 0x1e0f18,
           blurFactor: 0.6,
           speed: 2.7,
           zoom: 0.9,
@@ -56,6 +56,7 @@ const Projects = () => {
       <h1 className="projects_header">
         Projects <span className="projects-emoji">📚</span>
       </h1>
+
       <div className="projects-grid">
         {projectList.map((project, i) => (
           <motion.div
@@ -72,12 +73,16 @@ const Projects = () => {
               <p className="project-duration">{project.duration}</p>
               <ul className="project-description">
                 {project.description.split('. ').map((sentence, idx) => (
-                  <li key={idx}>{sentence.trim().replace(/\.$/, '')}.</li>
+                  <li key={idx}>
+                    {sentence.trim().replace(/\.$/, '')}.
+                  </li>
                 ))}
               </ul>
-              <p className="project-skills">
-                <strong>Tools:</strong> {project.tools}
-              </p>
+              <div className="project-skills">
+                {project.tools.split(', ').map((tool, idx) => (
+                  <span key={idx}>{tool}</span>
+                ))}
+              </div>
             </div>
           </motion.div>
         ))}
