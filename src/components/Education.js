@@ -59,7 +59,7 @@ const Education = () => {
       achievements: [
         "Graduate Research Assistant – worked on federated learning framework.",
         "Participated in coding projects and academic seminars.",
-        "Collaborated with staff to validate lighting fixture positions within the campus facilities app.",
+        "Courses: Algorithms, Distributed Computing Systems, Computer Networks, DataBase Management Systems, Advance Cloud Computing, Secure Programming, Software Engineering",
       ]
     },
     {

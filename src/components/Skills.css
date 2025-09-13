@@ -1,323 +1,136 @@
+#skills {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 60px 5%;
+  text-align: center;
+}
 
-body {
-    background-color: beige;
-  }
-  
-  #skills {
-    background-color: #8c4863;
-    display: block;
-    flex-direction: column;
-    align-items: center;
-    padding: 60px 5% 0px;
-    min-height: auto;
-    gap: 0.1px;
-    margin-bottom: 0;
-  }
-  
-  .skills_header {
-    font-size: 2.9rem;
-    color: #ffcc00;
-    text-align: left;
-    align-items: flex-start;
-    white-space: nowrap;
-    margin: 0;
-    padding: 0;
-    line-height: -5;
-  }
-  
-  .skills-emoji {
-    position: relative;
-    top: -5px;
-  }
-  
-  .page-break {
-    page-break-before: always;
-    break-before: page;
-  }
-  
-  .skills-container-wrapper {
-    margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
-    transform: translateY(-80px);
-  }
-  
-  .skills-container {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    width: 100%;
-    padding-bottom: 10px;
-    min-height: auto;
-  }
- 
-  .category,
-  .category0,
-  .category1,
-  .category2,
-  .category3,
-  .category4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    width: fit-content;
-    align-self: flex-start;
-  }
-  
-  .category h4,
-  .category0 h4,
-  .category1 h4,
-  .category2 h4,
-  .category3 h4,
-  .category4 h4 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #f5deb3;
-    margin: 0;
-    padding: 0;
-    white-space: normal;
-    text-align: center;
-    max-width: 180px;
-    line-height: 1.3;
-    min-height: 125px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-  
-  .skill,
-  .tech-skill,
-  .tech-skill-2,
-  .tech-skill-3,
-  .tech-skill-4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-  
-  .tech-skill-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(7, auto);
-    row-gap: 10px;
-    column-gap: 10px;
-    justify-items: center;
-  }
-  
-  .skill-item,
-  .tech-skill-item,
-  .tech-skill-item-2,
-  .tech-skill-item-3,
-  .tech-skill-item-4 {
-    text-align: center;
-    justify-items: center;
-    padding: 15px;
-    border: 2px solid #b67b9b;
-    border-radius: 10px;
-    background-color: #f6eaeddc;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05); 
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+/* Header centered */
+.skills_header {
+  font-size: 2.8rem;
+  color: #ffcc00;
+  margin-bottom: 50px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.skills-emoji {
+  font-size: 1.5rem;
+  margin-left: 8px;
+  position: relative;
+  top: -3px;
+}
+
+/* Categories stacked */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  width: 100%;
+}
+
+.category {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.category h4 {
+  font-size: 1.4rem;
+  color: #f5deb3;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Grid for skills inside category */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Skill card */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f5dc;
+  border-radius: 12px;
+  padding: 15px;
+  width: 100px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  backdrop-filter: blur(6px);
+}
+
+.skill-card.visible {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* Icons */
+.skill-card img {
+  width: 40px;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Text */
+.skill-card p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000000;
+  text-transform: capitalize;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% {
     opacity: 0;
     transform: translateY(20px);
   }
-  
-  .skill {
-    grid-template-columns: repeat(6, 1fr);
-    row-gap: 10px;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .tech-skill {
-    grid-template-columns: repeat(5, 1fr);
-    row-gap: 10px;
-  }
-  .tech-skill-3 {
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 10px;
-  }
-  .tech-skill-4 {
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 10px;
-  }
-  
-  .skill-item p,
-  .tech-skill-item p,
-  .tech-skill-item-2 p,
-  .tech-skill-item-3 p,
-  .tech-skill-item-4 p {
-    font-weight: bold;
-    color: #807777;
-    text-wrap: nowrap;
-  }
-  
-  .skill img,
-  .tech-skill-item img,
-  .tech-skill-item-2 img,
-  .tech-skill-item-3 img,
-  .tech-skill-item-4 img {
-    width: 40px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .skill img:hover,
-  .tech-skill-item img:hover,
-  .tech-skill-item-2 img:hover,
-  .tech-skill-item-3 img:hover,
-  .tech-skill-item-4 img:hover {
-    transform: scale(1.2);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  }
-  
-  .federated-learning-text,
-  .kubernetes-text,
-  .android-studio-text,
-  .confluence-text,
-  .cicd-text,
-  .gcp-text {
-    position: relative;
-  }
-  
-  .federated-learning-text { left: -50px; }
-  .kubernetes-text { left: -5px; }
-  .android-studio-text { left: -5px; }
-  .confluence-text { left: -5px; }
-  .cicd-text { left: -80px; }
-  .gcp-text { left: -8px; }
-  
+}
 
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .skill-item.visible,
-  .tech-skill-item.visible,
-  .tech-skill-item-2.visible,
-  .tech-skill-item-3.visible,
-  .tech-skill-item-4.visible {
-    animation: fadeInUp 0.6s ease forwards;
+/* Responsive */
+@media (max-width: 768px) {
+  .skills_header {
+    font-size: 2rem;
   }
 
-  .skill-item,.tech-skill-item,
-    .tech-skill-item-2,
-    .tech-skill-item-3,
-    .tech-skill-item-4 {
-      width: 90%;
-      max-width: 280px;
-    }
-  
-  @media (max-width: 768px) {
-    #skills {
-      align-items: center;
-      padding: 40px 20px;
-    }
-  
-    .skills-container-wrapper {
-      padding-left: 10px; 
-      padding-right: 5px;
-    }
-  
-    .skills_header {
-      font-size: 2rem;
-      text-align: center;
-      justify-content: center;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-  
-    .skills-emoji {
-      position: relative;
-      top: -1px;
-    }
-  
-    .skills-container {
-      flex-direction: column;
-      align-items: center;
-      padding-left: 1px;    
-      margin-left: 5px;
-      gap: 40px;
-      width: 97%;
-    }
-  
-    .category,
-    .category0,
-    .category1,
-    .category2,
-    .category3,
-    .category4 {
-      width: 100%;
-      align-items: center;
-    }
-  
-    .category h4,
-    .category0 h4,
-    .category1 h4,
-    .category2 h4,
-    .category3 h4,
-    .category4 h4 {
-      font-size: 1.3rem;
-      min-height: auto;
-      max-width: 90%;
-      text-align: center;
-      margin-bottom: -10px;
-      color: #f5deb3; 
-    }
-  
-    .skill,
-    .tech-skill,
-    .tech-skill-2,
-    .tech-skill-3,
-    .tech-skill-4 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      justify-items: center;
-      gap: 10px;
-    }
-
-    .skill-item,.tech-skill-item,
-    .tech-skill-item-2,
-    .tech-skill-item-3,
-    .tech-skill-item-4 {
-      width: 90%;
-      max-width: 280px;
-    }
-
-    
-    .skill img,
-    .tech-skill-item img,
-    .tech-skill-item-2 img,
-    .tech-skill-item-3 img,
-    .tech-skill-item-4 img {
-      width: 35px;
-    }
-  
-    .skill-item p,
-    .tech-skill-item p,
-    .tech-skill-item-2 p,
-    .tech-skill-item-3 p,
-    .tech-skill-item-4 p {
-      font-size: 0.85rem;
-      text-align: center;
-    }
-  
-    .federated-learning-text,
-    .kubernetes-text,
-    .android-studio-text,
-    .confluence-text,
-    .cicd-text,
-    .gcp-text {
-      left: 0; 
-    }
+  .category h4 {
+    font-size: 1.2rem;
   }
-  
+
+  .skill-card {
+    width: 80px;
+    padding: 10px;
+  }
+
+  .skill-card img {
+    width: 30px;
+  }
+
+  .skill-card p {
+    font-size: 0.75rem;
+  }
+}
