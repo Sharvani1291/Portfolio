@@ -111,7 +111,7 @@ const Home = () => {
 
           <div className="resume-container fade-slide-up">
             <a
-              href="/Sharvani_Resume_2025.pdf"
+              href={`${process.env.PUBLIC_URL}/Sharvani_Resume_2025.pdf`}
               download
               className="resume-box"
             >
