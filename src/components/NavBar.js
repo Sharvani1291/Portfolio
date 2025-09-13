@@ -1,9 +1,42 @@
-// src/components/NavBar.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './NavBar.css';
 
 const NavBar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'profile', 'work', 'projects', 'certifications', 'skills', 'education'];
+      const scrollPosition = window.scrollY + 100; // Add offset for navbar height
+
+      for (let section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const top = element.offsetTop;
+          const bottom = top + element.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < bottom) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // call initially
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const sections = [
+    { id: 'home', label: 'Home' },
+    { id: 'profile', label: 'Profile' },
+    { id: 'work', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'certifications', label: 'Certifications' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'education', label: 'Education' },
+  ];
 
   return (
     <nav>
@@ -31,15 +64,18 @@ const NavBar = () => {
       </div>
 
       <div className={`nav-right ${isMobileMenuOpen ? 'open' : ''}`}>
-      <div className="nav-links">
-        <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home🏠</a>
-        <a href="#profile" onClick={() => setMobileMenuOpen(false)}>Profile👩🏻‍💻</a>
-        <a href="#work" onClick={() => setMobileMenuOpen(false)}>Experience💼</a>
-        <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects📚</a>
-        <a href="#certifications" onClick={() => setMobileMenuOpen(false)}>Certifications📜</a>
-        <a href="#skills" onClick={() => setMobileMenuOpen(false)}>Skills⚙️</a>
-        <a href="#education" onClick={() => setMobileMenuOpen(false)}>Education🎓</a>
-      </div>
+        <div className="nav-links">
+          {sections.map((section) => (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              className={activeSection === section.id ? 'active' : ''}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {section.label}
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   );

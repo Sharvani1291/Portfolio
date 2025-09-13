@@ -75,8 +75,8 @@ const Profile = () => {
           <strong> data engineering and applied research</strong> to deliver scalable and intelligent solutions.
           <br /><br />
           Beyond my professional and academic life, I actively pursue creative and recreational activities that 
-          help me stay balanced. I am passionate about <strong>Photography 📸, Reading Spiritual Books 📚, crafting 
-          paper models ✂️, and playing badminton 🏸 and chess ♟️</strong>. These interests keep me grounded, 
+          help me stay balanced. I am passionate about <strong>Photography, Reading Spiritual Books, crafting 
+          paper models, and playing badminton and chess</strong>. These interests keep me grounded, 
           imaginative, and motivated to bring a fresh perspective to both my work and my life.
         </p>
 

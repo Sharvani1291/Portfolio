@@ -32,6 +32,12 @@ nav {
     transition: color 0.3s;
     cursor: pointer;
   }
+
+  .nav-links a.active {
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
+    transition: border-bottom 0.3s ease;
+  }  
   
   .nav-links a:hover {
     color: #ffcc00;
