@@ -46,13 +46,38 @@ const Profile = () => {
       <div className="about-content">
         <p className="about-me-description">
           <br /><br /><br /><br />
-          I recently graduated with a <strong>Master's degree in Computer Science</strong> from the <strong>University of Georgia</strong> 🎓. I'm passionate about delivering high-quality work and continuously learning the latest in tech. With a background in <strong>Electronics and Communication Engineering</strong>, my interest in the intersection of hardware and software naturally led me to explore <strong>Computer Science</strong> further. My key interests lie in <strong>Federated Learning, Machine Learning, Data Engineering, and Software Development</strong>.
+          I am currently working as a <strong>Data & Application Migration Engineer</strong> at 
+          <strong> Yoonefi Technology Solutions LLC</strong> 💼, where I contribute to the 
+          <strong> stacX Platform</strong>, a cloud-native solution supporting nonprofit organizations. 
+          My work focuses on <strong>building ETL pipelines with AWS Glue, S3, and RDS</strong>, enabling 
+          migration from legacy systems to <strong>modern cloud data platforms</strong>. I also ensure  
+          schema transformation, validation, and integration for scalable, multi-tenant applications.
           <br /><br />
-          Before pursuing my Master's in the <strong>USA</strong> 🇺🇸, I gained 3 years of industry experience at <strong>Cognizant</strong> 💼, where I worked on enterprise-level software systems and built a solid foundation in <strong>data-centric development</strong>. During my graduate program, I also completed a <strong>Full-Time Co-op at Resolution Life</strong> 🔍, where I applied my skills to real-world business and data challenges, further refining my expertise in backend systems and cloud platforms.
+          I recently earned my <strong>Master’s degree in Computer Science</strong> from the 
+          <strong> University of Georgia</strong> 🎓, where I specialized in <strong>Machine Learning, 
+          Federated Learning, and Data Engineering</strong>. As a <strong>Research Assistant</strong>, 
+          I developed a <strong>hierarchical federated learning framework</strong> that improved convergence 
+          time and reduced infrastructure costs, while also exploring client clustering and 
+          gRPC-based communication for distributed training.
           <br /><br />
-          I’m now seeking full-time opportunities where I can contribute to <strong>Cloud Technologies, AI, and Machine Learning</strong>. I aim to be part of innovative teams pushing the boundaries of <strong>scalability, automation, and intelligent solutions</strong>.
+          During my <strong>Data Science Co-op at Resolution Life</strong> 💼, I designed automated pipelines 
+          for both real-time and batch data using <strong>AWS Glue, Iceberg, and Lambda</strong>, improving 
+          analytics-ready data availability by 35%. I also implemented <strong>CI/CD pipelines</strong> with 
+          GitHub Actions and CodePipeline, reducing release cycles by 25%.
           <br /><br />
-          Outside of work, I enjoy <strong>Photography 📸, Reading Spiritual Books 📚, crafting paper models ✂️, and playing badminton 🏸 and chess ♟️</strong> as ways to stay creative and balanced.
+          Earlier in my career, I worked at <strong>Cognizant Technology Solutions</strong> 💼 as a 
+          <strong> Associate Data Engineer</strong>, where I built <strong>event-driven ingestion frameworks, 
+          data lakes, and fine-grained access controls</strong> using a wide range of AWS services. 
+          These experiences helped me gain strong foundations in <strong>cloud platforms, big data, and automation</strong>.
+          <br /><br />
+          Looking forward, I am eager to contribute to projects in 
+          <strong> Cloud Technologies, AI, and Machine Learning</strong>, combining my background in 
+          <strong> data engineering and applied research</strong> to deliver scalable and intelligent solutions.
+          <br /><br />
+          Beyond my professional and academic life, I actively pursue creative and recreational activities that 
+          help me stay balanced. I am passionate about <strong>Photography 📸, Reading Spiritual Books 📚, crafting 
+          paper models ✂️, and playing badminton 🏸 and chess ♟️</strong>. These interests keep me grounded, 
+          imaginative, and motivated to bring a fresh perspective to both my work and my life.
         </p>
 
         <div className="about-images">

@@ -1,51 +1,45 @@
-// src/components/Skills.js
-import React, { useEffect, useRef } from 'react';
-import './Skills.css';
+import React, { useEffect, useRef } from "react";
+import "./Skills.css";
 
 const skillsData = [
   {
-    category: 'Programming Languages',
-    items: ['python', 'java', 'html', 'css', 'javascript', 'rust'],
-    className: 'skill',
-    itemClass: 'skill-item',
-    format: (name) => name.charAt(0) + name.slice(1),
+    category: "Programming Languages",
+    items: ["python", "java", "html", "css", "javascript", "rust"],
+    format: (name) => name.charAt(0).toUpperCase() + name.slice(1),
   },
   {
-    category: 'Technologies & Platforms',
-    items: ['aws', 'azure', 'gcp', 'bigdata', 'federated-learning'],
-    className: 'tech-skill',
-    itemClass: 'tech-skill-item',
-    format: (name) => name.replace('-', ' '),
+    category: "Technologies & Platforms",
+    items: ["aws", "azure", "gcp", "bigdata", "federated-learning"],
+    format: (name) => name.replace("-", " "),
   },
   {
-    category: 'Development Tools & Frameworks',
+    category: "Development Tools & Frameworks",
     items: [
-      'vscode', 'intellij', 'eclipse', 'jenkins', 'jira',
-      'confluence', 'cicd', 'github', 'kubernetes',
-      'docker', 'fastapi', 'grpc', 'androidstudio',
+      "vscode",
+      "intellij",
+      "eclipse",
+      "jenkins",
+      "jira",
+      "confluence",
+      "cicd",
+      "github",
+      "kubernetes",
+      "docker",
+      "fastapi",
+      "grpc",
+      "androidstudio",
     ],
-    className: 'tech-skill-2',
-    itemClass: 'tech-skill-item-2',
-    customClass: {
-      confluence: 'confluence-text',
-      kubernetes: 'kubernetes-text',
-      androidstudio: 'android-studio-text',
-    },
     format: (name) => name,
   },
   {
-    category: 'Databases',
-    items: ['sql', 'postgresql', 'mongodb'],
-    className: 'tech-skill-3',
-    itemClass: 'tech-skill-item-3',
+    category: "Databases",
+    items: ["sql", "postgresql", "mongodb"],
     format: (name) => name,
   },
   {
-    category: 'Machine Learning Frameworks & Tools',
-    items: ['tensorflow', 'pytorch', 'pandas', 'numpy'],
-    className: 'tech-skill-4',
-    itemClass: 'tech-skill-item-4',
-    format: (name) => name.charAt(0) + name.slice(1),
+    category: "Machine Learning Frameworks & Tools",
+    items: ["tensorflow", "pytorch", "pandas", "numpy"],
+    format: (name) => name.charAt(0).toUpperCase() + name.slice(1),
   },
 ];
 
@@ -59,10 +53,10 @@ const Skills = () => {
       (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const items = sectionRef.current.querySelectorAll('[data-skill]');
+            const items = sectionRef.current.querySelectorAll("[data-skill]");
             items.forEach((item, index) => {
               setTimeout(() => {
-                item.classList.add('visible');
+                item.classList.add("visible");
               }, index * 100);
             });
             obs.disconnect();
@@ -77,9 +71,10 @@ const Skills = () => {
     return () => observer.disconnect();
   }, []);
 
+
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js';
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js";
     script.async = true;
     script.onload = () => {
       if (window.VANTA && !vantaEffectRef.current) {
@@ -109,32 +104,32 @@ const Skills = () => {
   return (
     <section id="skills" ref={vantaRef}>
       <div ref={sectionRef}>
-        <div className="page-break"></div>
         <h1 className="skills_header">
           My Skills <span className="skills-emoji">⚙️</span>
         </h1>
 
-        <div className="skills-container-wrapper">
-          <section className="skills-container">
-            {skillsData.map(({ category, items, className, itemClass, format, customClass }, index) => (
-              <div key={index} className={`category${index || ''}`}>
-                <h4>{category}:</h4>
-                <div className={className}>
-                  {items.map((item, i) => (
-                    <div
-                      className={`${itemClass}`}
-                      key={item}
-                      data-skill
-                      style={{ animationDelay: `${i * 100}ms` }}
-                    >
-                      <img src={`${process.env.PUBLIC_URL}/images/${item}.png`} alt={item} />
-                      <p className={customClass?.[item] || ''}>{format(item)}</p>
-                    </div>
-                  ))}
-                </div>
+        <div className="skills-container">
+          {skillsData.map(({ category, items, format }, index) => (
+            <div key={index} className="category">
+              <h4>{category}</h4>
+              <div className="skills-grid">
+                {items.map((item, i) => (
+                  <div
+                    className="skill-card"
+                    key={item}
+                    data-skill
+                    style={{ animationDelay: `${i * 100}ms` }}
+                  >
+                    <img
+                      src={`${process.env.PUBLIC_URL}/images/${item}.png`}
+                      alt={item}
+                    />
+                    <p>{format(item)}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </section>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -6,6 +6,37 @@
   height: 40vmin;
   pointer-events: none;
 }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: #673147;
+  border-top: 2px solid white;
+  font-size: 0.95rem;
+}
+
+.footer-left {
+  color: white;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+.footer-right a {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-right a:hover {
+  color: #8c4863;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
