@@ -34,6 +34,81 @@
   color: #8c4863;
 }
 
+/* Scroll-to-top caret styling (bottom right with animation + tooltip) */
+.scroll-to-top {
+  position: fixed;
+  bottom: 65px;
+  right: 18px;
+  background-color: #f5f5dc; /* inside color */
+  color: #673147; /* caret color */
+  border: 3px solid #673147;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  animation: floatUpDown 2s ease-in-out infinite;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* When visible */
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Floating animation */
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.scroll-to-top:hover {
+  background-color: #673147;
+  color: #f5f5dc;
+  transform: scale(1.1);
+  animation: none;
+}
+
+/* Tooltip styling */
+.scroll-to-top::after {
+  content: "Back to top";
+  position: absolute;
+  bottom: 70px;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: #673147;
+  color: #f5f5dc;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Slide-up + fade-in tooltip on hover */
+.scroll-to-top:hover::after {
+  opacity: 1;
+  transform: translateX(50%) translateY(-5px);
+}
+
+.caret-symbol {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1;
+  transform: translateY(6px); /* Slightly lower caret symbol */
+}
+
+
 /* --------------------------- */
 /* Mobile / Small Screens <768px */
 /* --------------------------- */
