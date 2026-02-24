@@ -5,7 +5,7 @@ export default defineCliConfig({
     projectId: 'h94lawqm',
     dataset: 'production',
   },
-  studioHost: 'sanitycms-portfolio-sharvani', // only slug, no https://
+  studioHost: 'sanitycms-portfolio-sharvani', 
   deployment: {
     autoUpdates: true,
   },
