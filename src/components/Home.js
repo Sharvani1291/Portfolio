@@ -6,35 +6,84 @@ const Home = ({ home = {}, siteSettings = {} }) => {
   const vantaEffectRef = useRef(null);
 
   useEffect(() => {
-    const loadVanta = async () => {
-      if (!window.VANTA || !window.VANTA.NET) {
+    let mounted = true;
+    let resizeObserver = null;
+
+    const ensureScript = (src, check) =>
+      new Promise((resolve, reject) => {
+        if (check()) return resolve();
         const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js';
+        script.src = src;
         script.async = true;
-        script.onload = () => {
-          if (window.VANTA && !vantaEffectRef.current) {
-            vantaEffectRef.current = window.VANTA.NET({
-              el: vantaRef.current,
-              color: 0x8c4863,
-              backgroundColor: 0xf5f5dc,
-              points: 10.0,
-              maxDistance: 25.0,
-              spacing: 18.0,
-              showDots: false,
-              mouseControls: true,
-              touchControls: true,
-              scale: 1.0,
-              scaleMobile: 1.0,
-            });
-          }
-        };
+        script.onload = resolve;
+        script.onerror = reject;
         document.body.appendChild(script);
+      });
+
+    const initVanta = () => {
+      if (!mounted || !vantaRef.current || !window.VANTA?.NET) return;
+
+      if (vantaEffectRef.current) {
+        vantaEffectRef.current.destroy();
+        vantaEffectRef.current = null;
+      }
+
+      vantaEffectRef.current = window.VANTA.NET({
+        el: vantaRef.current,
+        color: 0x8c4863,
+        backgroundColor: 0xf5f5dc,
+        points: 10.0,
+        maxDistance: 40.0,
+        spacing: 29.0,
+        showDots: false,
+        mouseControls: true,
+        touchControls: true,
+        scale: 1.0,
+        scaleMobile: 1.0,
+      });
+
+      requestAnimationFrame(() => vantaEffectRef.current?.resize?.());
+      setTimeout(() => vantaEffectRef.current?.resize?.(), 150);
+    };
+
+    const handleResize = () => {
+      vantaEffectRef.current?.resize?.();
+    };
+
+    const setup = async () => {
+      try {
+        await ensureScript(
+          'https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js',
+          () => Boolean(window.THREE)
+        );
+        await ensureScript(
+          'https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js',
+          () => Boolean(window.VANTA?.NET)
+        );
+
+        initVanta();
+        window.addEventListener('resize', handleResize);
+
+        if (window.ResizeObserver && vantaRef.current) {
+          resizeObserver = new ResizeObserver(handleResize);
+          resizeObserver.observe(vantaRef.current);
+        }
+      } catch (err) {
+        console.error('Vanta NET init failed:', err);
       }
     };
 
-    loadVanta();
+    setup();
+
     return () => {
-      if (vantaEffectRef.current) vantaEffectRef.current.destroy();
+      mounted = false;
+      window.removeEventListener('resize', handleResize);
+      if (resizeObserver) resizeObserver.disconnect();
+
+      if (vantaEffectRef.current) {
+        vantaEffectRef.current.destroy();
+        vantaEffectRef.current = null;
+      }
     };
   }, []);
 

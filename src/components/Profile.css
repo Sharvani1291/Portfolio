@@ -116,23 +116,35 @@
 
 @media (max-width: 768px) {
   #profile {
-    padding: 48px 16px 0;
+    padding: 56px 16px 10px;
   }
 
   .about-me-title {
     font-size: 2rem;
     text-align: center;
-    margin: 0;
-    margin-bottom: -90px;
+    width: 100%;
+    white-space: normal;
+    line-height: 1.2;
+    margin: 0 0 14px;
+  }
+
+
+  .about-emoji {
+    top: -2px;
+  }
+
+  .about-content {
+    align-items: stretch;
+    padding: 0 10px;
+    gap: 0;
   }
 
   .about-me-description {
     font-size: 1rem;
     line-height: 1.8;
-    text-align: justify;
+    text-align: left;
     margin-top: 0;
-    padding: 0 10px;
-    padding-top: 90px;
+    padding: 0;
   }
 
   .about-me-description p {
@@ -143,43 +155,8 @@
     margin-bottom: 0.6em;
   }
 
-  .about-content {
-    align-items: center;
-    padding: 0 10px;
-    gap: 8px;
-  }
-
+  /* Hide icons only on mobile */
   .about-images {
-    padding-left: 0;
-    justify-content: center;
-    gap: 10px;
-    margin-top: -200px;
-    margin-bottom: -140px;
-  }
-
-  .about-images img {
-    width: 20px;
-    height: auto;
-    margin-top: 0 !important;
-    margin-bottom: 0;
-  }
-
-  .about-images img:nth-child(2),
-  .about-images img:nth-child(3),
-  .about-images img:nth-child(4) {
-    width: 60px;
-  }
-
-  .about-images img:nth-child(5) {
-    width: 40px;
-  }
-
-  .about-images img:nth-child(1) {
-    width: 50px;
-  }
-
-  .about-images img:nth-child(4) {
-    padding-top: 70px;
+    display: none !important;
   }
 }
-

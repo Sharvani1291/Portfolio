@@ -231,95 +231,86 @@
   }
   
 @media (max-width: 768px) {
-    #home {
-      padding: 30px 20px;
-      position: relative;
-      overflow-x: hidden; 
-    }
-    .desktop-photo {
-        display: none;
-      }
-    
-      .mobile-photo {
-        display: block;
-      }
-  
-    .home-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-      width: 100%; 
-    }
-  
-    .right-part {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start; 
-        padding: 0 10px; 
-        margin-top: 0;
-      }
-      
-  
-      .photo-container {
-        max-width: 220px;
-        width: 100%;
-      }
-      
-  
-    .left-part {
-        width: 100%;
-        text-align: left; 
-        align-items: flex-start; 
-        padding: 0 10px; 
-      }      
-  
-    .intro h1 {
-      font-size: 2em;
-    }
-  
-    .roles {
-      font-size: 1.2em;
-      margin-top: 8px;
-      white-space: normal;
-    }
-  
-    .get-in-touch {
-      font-size: 1.4em;
-      margin-top: 30px;
-    }
-  
-    .contact-details {
-        flex-direction: row;
-        justify-content: flex-start; 
-        gap: 10px;
-        margin-top: 15px;
-        flex-wrap: wrap;
-      }
-      
-  
-    .contact-icon img {
-      width: 30px;
-      height: 30px;
-    }
-  
-    .resume-container {
-      margin-top: 25px;
-    }
-  
-    .resume-box {
-      font-size: 1.1em;
-      padding: 8px 16px;
-    }
-    
-.photo-container {
+  #home {
+    padding: 12px 16px 28px;
     position: relative;
-    overflow: hidden;
-    border-radius: 20px;
+    overflow-x: hidden;
+    min-height: auto;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .desktop-photo {
+    display: none;
+  }
+
+  .mobile-photo {
+    display: block;
+  }
+
+  .home-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .right-part {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-top: 0;
+  }
+
+  .photo-container {
     width: 100%;
     max-width: 500px;
-    background-color: #8c4863;
   }
-  
+
+  .left-part {
+    width: 100%;
+    text-align: left;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .intro h1 {
+    font-size: 2em;
+  }
+
+  .roles {
+    font-size: 1.2em;
+    margin-top: 8px;
+    white-space: normal;
+  }
+
+  .get-in-touch {
+    font-size: 1.4em;
+    margin-top: 24px;
+  }
+
+  .contact-details {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .contact-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .resume-container {
+    margin-top: 20px;
+  }
+
+  .resume-box {
+    font-size: 1.1em;
+    padding: 8px 16px;
+  }
 
   .photo-container img {
     width: 100%;
@@ -328,12 +319,9 @@
     object-fit: cover;
     transition: transform 1.5s ease, opacity 1.5s ease;
   }
-  
-  
+
   .photo-container:hover img {
     transform: scale(1.05);
     opacity: 1;
   }
-  
-  }
-  
+}

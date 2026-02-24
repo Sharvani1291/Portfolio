@@ -1,49 +1,56 @@
 /* Scrolling Sections */
 #scroll-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 80px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
 }
 
 .section-header {
-    font-size: 3rem;
-    color: #ffcc00;
-    margin-bottom: 60px;
-    margin-left: 5%;
-    text-align: left;
-    white-space: nowrap;
+  font-size: 3rem;
+  color: #ffcc00;
+  margin-bottom: 60px;
+  margin-left: 5%;
+  text-align: left;
+  white-space: nowrap;
 }
 
-section h1, section p {
-    text-align: left;
+section h1,
+section p {
+  text-align: left;
 }
 
 .animated-icons span {
-    font-size: 1.2em;
-    animation: float 1.5s ease-in-out infinite;
-    display: inline-block;
-    margin-left: 5px;
+  font-size: 1.2em;
+  animation: float 1.5s ease-in-out infinite;
+  display: inline-block;
+  margin-left: 5px;
 }
 
 .animated-icons span:nth-child(1) {
-    animation-delay: 0s; 
+  animation-delay: 0s;
 }
 
 .animated-icons span:nth-child(2) {
-    animation-delay: 0.5s; 
+  animation-delay: 0.5s;
 }
 
 .animated-icons span:nth-child(3) {
-    animation-delay: 1s; 
+  animation-delay: 1s;
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px); 
-    }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  #scroll-container {
+    margin-top: 62px; /* fixes white strip under mobile navbar */
+  }
 }
