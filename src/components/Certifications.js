@@ -1,4 +1,3 @@
-// src/components/Certifications.js
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './Certifications.css';
@@ -11,23 +10,22 @@ const flipInCert = {
     transformOrigin: 'left center',
     perspective: 1000,
     transition: {
-      delay: i * 0.3,
-      duration: 0.8,
+      delay: i * 0.25,
+      duration: 0.7,
       ease: 'easeOut',
     },
   }),
 };
 
-const Certifications = () => {
+const Certifications = ({ certifications = [] }) => {
   const vantaRef = useRef(null);
   const vantaEffectRef = useRef(null);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js';
-    script.async = true;
-    script.onload = () => {
-      if (window.VANTA && !vantaEffectRef.current) {
+    let scriptEl;
+
+    const initVanta = () => {
+      if (window.VANTA && window.VANTA.NET && !vantaEffectRef.current) {
         vantaEffectRef.current = window.VANTA.NET({
           el: vantaRef.current,
           color: 0x8c4863,
@@ -43,34 +41,56 @@ const Certifications = () => {
         });
       }
     };
-    document.body.appendChild(script);
+
+    if (!window.VANTA || !window.VANTA.NET) {
+      scriptEl = document.createElement('script');
+      scriptEl.src = 'https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js';
+      scriptEl.async = true;
+      scriptEl.onload = initVanta;
+      document.body.appendChild(scriptEl);
+    } else {
+      initVanta();
+    }
 
     return () => {
-      if (vantaEffectRef.current) vantaEffectRef.current.destroy();
+      if (vantaEffectRef.current) {
+        vantaEffectRef.current.destroy();
+        vantaEffectRef.current = null;
+      }
+      if (scriptEl) scriptEl.remove();
     };
   }, []);
 
-  const certificates = [
-    {
-      title: 'AWS Certified Solutions Architect – Associate',
-      org: 'Amazon Web Services',
-      issuedDate: 'Jan 2024',
-      expiryDate: 'Jan 2027',
-      link: 'https://www.credly.com/badges/eddf5dc4-643d-478c-bdb2-13c5e2ce434d/linked_in?t=s6xdvq',
-      image: `${process.env.PUBLIC_URL}/images/certificate.png`,
-    },
-  ];
+  useEffect(() => {
+    if (!vantaEffectRef.current) return;
+
+    const resize = () => vantaEffectRef.current?.resize?.();
+    resize();
+
+    const t1 = setTimeout(resize, 120);
+    const t2 = setTimeout(resize, 300);
+
+    window.addEventListener('resize', resize);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.removeEventListener('resize', resize);
+    };
+  }, [certifications]);
+
+  const safeCertifications = Array.isArray(certifications) ? certifications : [];
 
   return (
     <section id="certifications" ref={vantaRef}>
       <h1 className="section-header">
         Certifications <span className="certificate-emoji">📜</span>
       </h1>
+
       <div className="cert-center-wrapper">
         <div className="cert-container">
-          {certificates.map((cert, index) => (
+          {safeCertifications.map((cert, index) => (
             <motion.div
-              key={index}
+              key={`${cert.title}-${index}`}
               className="cert-card"
               custom={index}
               variants={flipInCert}
@@ -79,21 +99,24 @@ const Certifications = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <div className="cert-card-left">
-                <img src={cert.image} alt={cert.title} className="cert-image" />
+                <img
+                  src={cert.imageUrl || `${process.env.PUBLIC_URL}/images/certificate.png`}
+                  alt={cert.title}
+                  className="cert-image"
+                />
               </div>
+
               <div className="cert-card-right">
                 <h3>{cert.title}</h3>
                 <p className="org-name">{cert.org}</p>
                 <span>Issued: {cert.issuedDate}</span>
                 <span>Valid Till: {cert.expiryDate}</span>
-                <a
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cert-link-box"
-                >
-                  Link
-                </a>
+
+                {cert.link ? (
+                  <a href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-link-box">
+                    Link
+                  </a>
+                ) : null}
               </div>
             </motion.div>
           ))}

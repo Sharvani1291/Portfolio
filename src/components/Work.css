@@ -2,10 +2,29 @@
 #work {
   background-color: #f5f5dc;
   position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 5%;
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 5% 80px;
+  overflow: hidden;
+}
+
+/* Force Vanta canvas to always cover full section height */
+#work .vanta-canvas {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+}
+
+/* Keep content above Vanta canvas */
+#work > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Section Header */
@@ -173,7 +192,6 @@
     margin-bottom: 5px;
   }
 
-  /* Add small vertical line connecting logo to description */
   .experience-details {
     max-width: 90%;
     position: relative;
@@ -183,11 +201,11 @@
   .experience-details::before {
     content: "";
     position: absolute;
-    top: -25px; /* from the top of the box to the logo */
+    top: -25px;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    height: 25px; /* length of the vertical connector */
+    height: 25px;
     background-color: #8c4863;
   }
 }
@@ -243,11 +261,10 @@
     display: none;
   }
 
-  /* Small vertical line connecting logo to description */
   .experience-details::before {
     content: "";
     position: absolute;
-    top: -28px; /* slightly longer for tablet */
+    top: -28px;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;

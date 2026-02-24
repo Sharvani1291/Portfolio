@@ -2,7 +2,10 @@
 #profile {
   background-color: transparent;
   display: block;
-  padding: 60px 5% 20px;
+  padding: 60px 5% 0;
+  min-height: auto;
+  height: auto;
+  overflow: visible;
 }
 
 .about-me-title {
@@ -11,6 +14,8 @@
   margin-inline-start: 1px;
   white-space: nowrap;
   text-align: left;
+  position: relative;
+  z-index: 2;
 }
 
 .about-emoji {
@@ -23,8 +28,21 @@
   line-height: 2.2;
   width: 100%;
   text-align: justify;
-  margin-top: -130px;
   color: white;
+  padding-top: 0;
+  margin-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Two-line gap between paragraphs */
+.about-me-description p {
+  margin: 0 0 2em;
+}
+
+/* Reduce extra space before image row */
+.about-me-description p:last-child {
+  margin-bottom: 0.8em;
 }
 
 .highlight {
@@ -36,7 +54,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
+  gap: 16px;
   width: 100%;
 }
 
@@ -45,9 +63,11 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 0;     
-  margin: 0 auto; 
-  width: 100%; 
+  padding: 0;
+  margin: 6px auto 0;
+  padding-bottom: 0;
+  margin-bottom: -90px;
+  width: 100%;
 }
 
 .about-images img {
@@ -69,21 +89,25 @@
   height: 480px;
   margin-top: -120px;
 }
+
 .about-images img:nth-child(2) {
   width: 240px;
   height: 520px;
   margin-top: -140px;
 }
+
 .about-images img:nth-child(3) {
   width: 240px;
   height: 440px;
   margin-top: -110px;
 }
+
 .about-images img:nth-child(4) {
   width: 240px;
   height: 440px;
   margin-top: -100px;
 }
+
 .about-images img:nth-child(5) {
   width: 150px;
   height: 450px;
@@ -91,39 +115,52 @@
 }
 
 @media (max-width: 768px) {
+  #profile {
+    padding: 48px 16px 0;
+  }
+
   .about-me-title {
     font-size: 2rem;
     text-align: center;
-    margin: 0; 
-    margin-bottom: -90px; 
+    margin: 0;
+    margin-bottom: -90px;
   }
 
   .about-me-description {
     font-size: 1rem;
     line-height: 1.8;
     text-align: justify;
-    margin-top: 0; 
+    margin-top: 0;
     padding: 0 10px;
+    padding-top: 90px;
+  }
+
+  .about-me-description p {
+    margin: 0 0 1.6em;
+  }
+
+  .about-me-description p:last-child {
+    margin-bottom: 0.6em;
   }
 
   .about-content {
     align-items: center;
     padding: 0 10px;
-    gap: 10px; 
+    gap: 8px;
   }
 
   .about-images {
     padding-left: 0;
     justify-content: center;
-    gap: 10px; 
-    margin-top: -200px; 
-    margin-bottom: -200px;
+    gap: 10px;
+    margin-top: -200px;
+    margin-bottom: -140px;
   }
 
   .about-images img {
     width: 20px;
     height: auto;
-    margin-top: 0 !important;  
+    margin-top: 0 !important;
     margin-bottom: 0;
   }
 
@@ -136,11 +173,12 @@
   .about-images img:nth-child(5) {
     width: 40px;
   }
+
   .about-images img:nth-child(1) {
     width: 50px;
   }
+
   .about-images img:nth-child(4) {
     padding-top: 70px;
   }
-  
 }

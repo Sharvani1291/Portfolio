@@ -9,76 +9,73 @@ import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Skills from './components/Skills';
 import Education from './components/Education';
+import { sanityClient } from './lib/sanityClient';
+import { PORTFOLIO_QUERY } from './lib/portfolioQuery';
 
 function App() {
   const [showScroll, setShowScroll] = useState(false);
+  const [content, setContent] = useState({});
 
-  // Show caret only after scrolling down a bit
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setShowScroll(true);
-      } else {
-        setShowScroll(false);
-      }
-    };
+    const handleScroll = () => setShowScroll(window.scrollY > 200);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Smooth scroll to top
+  useEffect(() => {
+    let mounted = true;
+    sanityClient
+      .fetch(PORTFOLIO_QUERY)
+      .then((data) => {
+        if (mounted && data) setContent(data);
+      })
+      .catch((err) => {
+        console.error('Sanity fetch failed:', err);
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const siteSettings = content.siteSettings || {};
+  const email = siteSettings.email || 'ch.sharvani.29@gmail.com';
+  const linkedin = siteSettings.linkedin || 'https://www.linkedin.com/in/sharvanichelumalla/';
+  const github = siteSettings.github || 'https://github.com/Sharvani1291';
+
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <>
-      <NavBar />
+      <NavBar siteSettings={siteSettings} />
       <div id="scroll-container">
-        <Home />
-        <Profile />
-        <Work />
-        <Projects />
-        <Certifications />
-        <Skills />
-        <Education />
+        <Home home={content.home} siteSettings={siteSettings} />
+        <Profile profile={content.profile} />
+        <Work experiences={content.experiences || []} />
+        <Projects projects={content.projects || []} />
+        <Certifications certifications={content.certifications || []} />
+        <Skills categories={content.skillCategories || []} />
+        <Education education={content.education || []} />
       </div>
 
-      {/* Floating scroll-to-top caret */}
-      <div
-        className={`scroll-to-top ${showScroll ? 'show' : ''}`}
-        onClick={scrollToTop}
-      >
+      <div className={`scroll-to-top ${showScroll ? 'show' : ''}`} onClick={scrollToTop}>
         <span className="caret-symbol">^</span>
       </div>
 
       <footer className="footer">
         <div className="footer-left">
-          <p>&copy; 2025 Sharvani Chelumalla | All Rights Reserved</p>
+          <p>{siteSettings.footerText || '© 2025 Sharvani Chelumalla | All Rights Reserved'}</p>
         </div>
         <div className="footer-right">
-          <a
-            href="mailto:ch.sharvani.29@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
             <i className="fab fa-google"></i>
           </a>
-          <a
-            href="https://www.linkedin.com/in/sharvanichelumalla/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={linkedin} target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin"></i>
           </a>
-          <a
-            href="https://github.com/Sharvani1291"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={github} target="_blank" rel="noopener noreferrer">
             <i className="fab fa-github"></i>
           </a>
         </div>

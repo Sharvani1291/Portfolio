@@ -1,4 +1,3 @@
-// src/components/Education.js
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './Education.css';
@@ -16,7 +15,12 @@ const fadeInUpEdu = {
   }),
 };
 
-const Education = () => {
+const toNum = (value) => {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+};
+
+const Education = ({ education = [] }) => {
   const vantaRef = useRef(null);
   const vantaEffectRef = useRef(null);
 
@@ -48,79 +52,62 @@ const Education = () => {
     };
   }, []);
 
-  const educationData = [
-    {
-      institution: "University of Georgia",
-      logo: `${process.env.PUBLIC_URL}/images/uga.png`,
-      degree: "MS - Computer Science",
-      location: "Athens, GA, USA",
-      date: "May 2025",
-      gpa: "3.54 / 4.00",
-      achievements: [
-        "Graduate Research Assistant – worked on federated learning framework.",
-        "Participated in coding projects and academic seminars.",
-        "Courses: Algorithms, Distributed Computing Systems, Computer Networks, DataBase Management Systems, Advance Cloud Computing, Secure Programming, Software Engineering",
-      ]
-    },
-    {
-      institution: "Vardhaman College of Engineering",
-      logo: `${process.env.PUBLIC_URL}/images/vce.png`,
-      degree: "B.Tech - Electronics and Communication Engineering",
-      location: "Hyderabad, TS, India",
-      date: "May 2020",
-      gpa: "8.71 / 10.00",
-      achievements: [
-        "Projects on signal processing and Embedded systems.",
-        "IETE student organization coordinator.",
-        "Earned NPTEL certificate on op-amp applications.",
-      ]
-    }
-  ];
+  const safeEducation = Array.isArray(education) ? education : [];
 
   return (
     <section id="education" ref={vantaRef}>
       <h2 className="education-title">Education 🎓</h2>
 
       <div className="education-wrapper">
-        {educationData.map((edu, index) => (
-          <motion.div
-            className="edu-card"
-            key={index}
-            custom={index}
-            variants={fadeInUpEdu}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            <div className="edu-header">
-              <img src={edu.logo} alt={`${edu.institution} logo`} className="edu-logo" />
-              <div className="edu-info">
-                <h2 className="institution">{edu.institution}</h2>
-                <div className="edu-location">
-                  <span>📍 {edu.location}</span>
+        {safeEducation.map((edu, index) => {
+          const gpaValue = toNum(edu.gpa);
+          const gpaScale = toNum(edu.gpaScale) || 4;
+          const percent = gpaValue !== null ? Math.max(0, Math.min(100, (gpaValue * 100) / gpaScale)) : 0;
+          const gpaText = gpaValue !== null ? `${gpaValue.toFixed(2)} / ${gpaScale.toFixed(2)}` : '';
+
+          return (
+            <motion.div
+              className="edu-card"
+              key={`${edu.institution}-${index}`}
+              custom={index}
+              variants={fadeInUpEdu}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <div className="edu-header">
+                <img
+                  src={edu.logoUrl || `${process.env.PUBLIC_URL}/images/uga.png`}
+                  alt={`${edu.institution} logo`}
+                  className="edu-logo"
+                />
+                <div className="edu-info">
+                  <h2 className="institution">{edu.institution}</h2>
+                  <div className="edu-location">
+                    <span>📍 {edu.location}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <h3 className="degree">{edu.degree}</h3>
-            <div className="edu-date">
-              <span>🎓 {edu.date}</span>
-            </div>
-            <div className="gpa-bar">
-              <div
-                className="progress-bar"
-                style={{
-                  width: `${parseFloat(edu.gpa.split(" ")[0]) * 100 / parseFloat(edu.gpa.split("/")[1])}%`,
-                }}
-              ></div>
-              <p className="gpa-text">{edu.gpa}</p>
-            </div>
-            <ul className="achievements">
-              {edu.achievements.map((item, idx) => (
-                <li key={idx}>• {item}</li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
+
+              <h3 className="degree">{edu.degree}</h3>
+
+              <div className="edu-date">
+                <span>🎓 {edu.date}</span>
+              </div>
+
+              <div className="gpa-bar">
+                <div className="progress-bar" style={{ width: `${percent}%` }} />
+                <p className="gpa-text">{gpaText}</p>
+              </div>
+
+              <ul className="achievements">
+                {(edu.achievements || []).map((item, idx) => (
+                  <li key={idx}>• {item}</li>
+                ))}
+              </ul>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

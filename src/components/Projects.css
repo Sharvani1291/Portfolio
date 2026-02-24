@@ -1,15 +1,34 @@
 /* Projects Section */
 #projects {
-  background-color: #8c4863; 
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  padding: 60px 5%;
-  min-height: fit-content;
+  padding: 64px 5% 90px;
+  overflow: hidden;
+  background-color: #8c4863;
+}
+
+/* Vanta canvas full coverage */
+#projects .vanta-canvas {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+}
+
+#projects > * {
+  position: relative;
+  z-index: 1;
 }
 
 .projects_header {
+  width: 100%;
   font-size: 3rem;
   color: #ffcc00;
   margin-bottom: 40px;
@@ -18,18 +37,20 @@
 
 .projects-emoji {
   position: relative;
-  top: -7px; 
+  top: -7px;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, minmax(320px, 1fr));
   gap: 25px;
   width: 100%;
   padding: 0 20px;
-  justify-content: center; 
+  justify-content: center;
+  align-items: stretch;
 }
 
+/* Equal-height cards */
 .project-box {
   background-color: #fff9e8;
   border-radius: 12px;
@@ -38,11 +59,23 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  min-height: 560px;
+  max-height: 560px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 .project-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-title {
@@ -51,21 +84,28 @@
   color: #8c4863;
   margin-bottom: 10px;
   text-align: center;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-duration {
   font-size: 0.95rem;
   color: #555;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   text-align: center;
 }
 
 .project-description {
   font-size: 1rem;
   color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   padding-left: 20px;
   list-style-type: disc;
+  flex: 1;
+  overflow: hidden;
 }
 
 .project-description li {
@@ -78,6 +118,9 @@
   flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
+  margin-top: auto;
+  max-height: 74px;
+  overflow: hidden;
 }
 
 .project-skills span {
@@ -95,16 +138,17 @@
   color: #8c4863;
 }
 
-/* -------------------------- */
-/* Mobile Responsive */
+/* Tablet */
 @media (max-width: 1024px) {
   .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
     gap: 20px;
     padding: 0 15px;
   }
 
   .project-box {
+    min-height: 520px;
+    max-height: 520px;
     padding: 20px;
   }
 
@@ -122,7 +166,7 @@
   }
 
   .project-skills {
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .project-skills span {
@@ -130,11 +174,12 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   .projects-grid {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     gap: 20px;
     padding: 0 10px;
   }
@@ -142,11 +187,11 @@
   .project-box {
     width: 100%;
     max-width: 90%;
+    min-height: auto;
+    max-height: none;
     margin: 0 auto;
     text-align: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
+    align-items: center;
   }
 
   .projects_header {
@@ -157,6 +202,7 @@
   .project-title {
     font-size: 1.3rem;
     text-align: center;
+    -webkit-line-clamp: unset;
   }
 
   .project-description li {
@@ -167,19 +213,13 @@
 
   .project-skills {
     justify-content: center;
+    max-height: none;
   }
 
   .project-skills span {
     font-size: 0.8rem;
     padding: 4px 10px;
   }
-}
-
-/* Fade-in animation for project boxes */
-.project-box {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s ease forwards;
 }
 
 @keyframes fadeInUp {

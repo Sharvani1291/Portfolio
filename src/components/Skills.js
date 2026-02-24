@@ -1,49 +1,14 @@
-import React, { useEffect, useRef } from "react";
-import "./Skills.css";
+import React, { useEffect, useRef } from 'react';
+import './Skills.css';
 
-const skillsData = [
-  {
-    category: "Programming Languages",
-    items: ["python", "java", "html", "css", "javascript", "rust"],
-    format: (name) => name.charAt(0).toUpperCase() + name.slice(1),
-  },
-  {
-    category: "Technologies & Platforms",
-    items: ["aws", "azure", "gcp", "bigdata", "federated-learning"],
-    format: (name) => name.replace("-", " "),
-  },
-  {
-    category: "Development Tools & Frameworks",
-    items: [
-      "vscode",
-      "intellij",
-      "eclipse",
-      "jenkins",
-      "jira",
-      "confluence",
-      "cicd",
-      "github",
-      "kubernetes",
-      "docker",
-      "fastapi",
-      "grpc",
-      "androidstudio",
-    ],
-    format: (name) => name,
-  },
-  {
-    category: "Databases",
-    items: ["sql", "postgresql", "mongodb"],
-    format: (name) => name,
-  },
-  {
-    category: "Machine Learning Frameworks & Tools",
-    items: ["tensorflow", "pytorch", "pandas", "numpy"],
-    format: (name) => name.charAt(0).toUpperCase() + name.slice(1),
-  },
-];
+const toImageKey = (text = '') =>
+  text
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
 
-const Skills = () => {
+const Skills = ({ categories = [] }) => {
   const sectionRef = useRef(null);
   const vantaRef = useRef(null);
   const vantaEffectRef = useRef(null);
@@ -52,12 +17,10 @@ const Skills = () => {
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const items = sectionRef.current.querySelectorAll("[data-skill]");
+          if (entry.isIntersecting && sectionRef.current) {
+            const items = sectionRef.current.querySelectorAll('[data-skill]');
             items.forEach((item, index) => {
-              setTimeout(() => {
-                item.classList.add("visible");
-              }, index * 100);
+              setTimeout(() => item.classList.add('visible'), index * 100);
             });
             obs.disconnect();
           }
@@ -67,17 +30,14 @@ const Skills = () => {
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
-
     return () => observer.disconnect();
-  }, []);
-
+  }, [categories]);
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js";
-    script.async = true;
-    script.onload = () => {
-      if (window.VANTA && !vantaEffectRef.current) {
+    let scriptEl;
+
+    const initVanta = () => {
+      if (window.VANTA && window.VANTA.FOG && !vantaEffectRef.current) {
         vantaEffectRef.current = window.VANTA.FOG({
           el: vantaRef.current,
           mouseControls: true,
@@ -94,12 +54,55 @@ const Skills = () => {
         });
       }
     };
-    document.body.appendChild(script);
+
+    if (!window.VANTA || !window.VANTA.FOG) {
+      scriptEl = document.createElement('script');
+      scriptEl.src = 'https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js';
+      scriptEl.async = true;
+      scriptEl.onload = initVanta;
+      document.body.appendChild(scriptEl);
+    } else {
+      initVanta();
+    }
 
     return () => {
-      if (vantaEffectRef.current) vantaEffectRef.current.destroy();
+      if (vantaEffectRef.current) {
+        vantaEffectRef.current.destroy();
+        vantaEffectRef.current = null;
+      }
+      if (scriptEl) scriptEl.remove();
     };
   }, []);
+
+  useEffect(() => {
+    if (!vantaEffectRef.current) return;
+
+    const syncVantaSize = () => {
+      vantaEffectRef.current?.resize?.();
+    };
+
+    syncVantaSize();
+    const t1 = setTimeout(syncVantaSize, 120);
+    const t2 = setTimeout(syncVantaSize, 350);
+
+    window.addEventListener('resize', syncVantaSize);
+
+    let resizeObserver;
+    if (window.ResizeObserver) {
+      resizeObserver = new ResizeObserver(syncVantaSize);
+      if (vantaRef.current) resizeObserver.observe(vantaRef.current);
+      if (sectionRef.current) resizeObserver.observe(sectionRef.current);
+    }
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.removeEventListener('resize', syncVantaSize);
+      if (resizeObserver) resizeObserver.disconnect();
+    };
+  }, [categories]);
+
+  const safeCategories = Array.isArray(categories) ? categories : [];
 
   return (
     <section id="skills" ref={vantaRef}>
@@ -109,24 +112,27 @@ const Skills = () => {
         </h1>
 
         <div className="skills-container">
-          {skillsData.map(({ category, items, format }, index) => (
-            <div key={index} className="category">
-              <h4>{category}</h4>
+          {safeCategories.map((cat, index) => (
+            <div key={`${cat.category}-${index}`} className="category">
+              <h4>{cat.category}</h4>
               <div className="skills-grid">
-                {items.map((item, i) => (
-                  <div
-                    className="skill-card"
-                    key={item}
-                    data-skill
-                    style={{ animationDelay: `${i * 100}ms` }}
-                  >
-                    <img
-                      src={`${process.env.PUBLIC_URL}/images/${item}.png`}
-                      alt={item}
-                    />
-                    <p>{format(item)}</p>
-                  </div>
-                ))}
+                {(cat.items || []).map((item, i) => {
+                  const label = item.label || item.imageKey || 'Skill';
+                  const imageKey = item.imageKey || toImageKey(label);
+                  const iconSrc = item.iconUrl || `${process.env.PUBLIC_URL}/images/${imageKey}.png`;
+
+                  return (
+                    <div
+                      className="skill-card"
+                      key={`${label}-${i}`}
+                      data-skill
+                      style={{ animationDelay: `${i * 100}ms` }}
+                    >
+                      <img src={iconSrc} alt={label} />
+                      <p>{label}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ))}

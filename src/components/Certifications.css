@@ -1,188 +1,166 @@
 #certifications {
-  background-color: #f5f5dc;
-  display: block;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  padding: 60px 5%;
-  gap: 40px;
-  width: 100vw;
+  position: relative;
+  width: 100%;
+  padding: 60px 5% 80px;
   text-align: center;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-  
-.section-header {
+#certifications .section-header {
+  width: 100%;
+  text-align: center !important;
+  margin: 0 auto 28px !important;
+  display: block;
   font-size: 3rem;
   color: #ffcc00;
-  margin: 0;
-  padding: 0;
   white-space: nowrap;
-  text-align: center;
 }
 
-  
-  .certificate-emoji {
-    position: relative;
-    top: -5px;
-  }
-  
+.certificate-emoji {
+  position: relative;
+  top: -5px;
+}
+
+.cert-center-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 32px;
+}
+
+.cert-container {
+  width: 100%;
+  max-width: 1240px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(420px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: row;
+  background-color: #8c4863;
+  border: 2px solid beige;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(244, 236, 236, 0.08);
+  padding: 24px;
+  width: 100%;
+  min-height: 320px;
+  align-items: center;
+}
+
+.cert-card-left {
+  flex: 0 0 170px;
+  padding-right: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.cert-image {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.cert-card-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.cert-card-right h3 {
+  margin: 0;
+  color: white;
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+
+.cert-card-right .org-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.cert-card-right span {
+  font-size: 1rem;
+  color: white;
+}
+
+.cert-link-box {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #8c4863;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease;
+  margin-top: 8px;
+}
+
+.cert-link-box:hover {
+  background-color: #6f3750;
+  text-decoration: underline;
+}
+
+@media (max-width: 1100px) {
   .cert-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    grid-template-columns: 1fr;
+    max-width: 760px;
   }
-  
+}
+
+@media (max-width: 768px) {
+  #certifications {
+    padding: 40px 12px 56px;
+  }
+
+  #certifications .section-header {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
   .cert-center-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 120px); 
-    padding-top: 40px;
+    padding-top: 16px;
   }
-  
-  
-  .cert-link-box {
-    display: inline-block; 
-    padding: 8px 16px;
-    background-color: #8c4863;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.2s ease;
-    margin-top: 12px;
-  }
-  
-  .cert-link-box:hover {
-    background-color: #8c4863;
-    text-decoration: underline;
-  }
-  
+
   .cert-card {
-    flex-direction: row;
-    background-color: #8c4863;
-    border: 2px solid beige;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(244, 236, 236, 0.08);
-    padding: 30px 40px;
-    align-items: center;
-    width: 100%;
-    max-width: 1100px;  
-    margin: 0 auto;
-    opacity: 0;
-    transform: perspective(1000px) rotateY(90deg);
-    transform-origin: left center;
-    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-  }
-  
-  
-  .cert-card.visible {
-    opacity: 1;
-    transform: perspective(1000px) rotateY(0deg);
+    flex-direction: column;
+    padding: 20px;
+    min-height: auto;
   }
 
   .cert-card-left {
-    flex: 1;
-    padding-right: 20px;
+    flex: unset;
+    padding-right: 0;
+    margin-bottom: 12px;
   }
-  
+
   .cert-image {
-    width: 300%;
-    max-width: 240px;
-    border-radius: 10px;
-    object-fit: cover;
+    max-width: 130px;
   }
-  
-  .cert-card-right {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center; 
-    gap: 15px;
-  }
-  
-  
+
   .cert-card-right h3 {
-    margin: 0;
-    color: white;
-    font-size: 1.8rem;
-    margin-bottom: 5px;
+    font-size: 1.2rem;
   }
-  
-  .cert-card-right .org-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: white;
-    text-align: center;
-    width: 100%;
-  }
-  
-  
+
   .cert-card-right span {
-    font-size: 1.05rem;
-    color: white;
+    font-size: 0.9rem;
   }
-  
-  @media (max-width: 768px) {
-    #certifications {
-      display: block;
-      padding: 40px 10px;
-      gap: 30px;
-      min-height: fit-content;
-    }
-  
-    .section-header {
-      font-size: 2rem;
-      justify-content: center;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-  
-    .cert-center-wrapper {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding-top: 20px;
-      min-height: fit-content !important; 
-    }
-  
-    .cert-card {
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      width: 100%;
-      max-width: 90%;
-    }
-  
-    .cert-card-left {
-      padding-right: 0;
-      margin-bottom: 15px;
-    }
-  
-    .cert-image {
-      max-width: 150px;
-    }
-  
-    .cert-card-right {
-      align-items: center;
-      text-align: center;
-    }
-  
-    .cert-card-right h3 {
-      font-size: 1.2rem;
-    }
-  
-    .cert-card-right span {
-      font-size: 0.9rem;
-    }
-  
-    .cert-link-box {
-      font-size: 0.95rem;
-      padding: 6px 14px;
-    }
+
+  .cert-link-box {
+    font-size: 0.95rem;
+    padding: 6px 14px;
   }
-  
+}

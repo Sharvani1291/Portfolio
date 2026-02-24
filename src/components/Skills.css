@@ -1,12 +1,20 @@
 #skills {
   position: relative;
+  width: 100%;
   min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 60px 5%;
+  padding: 60px 5% 100px;
   text-align: center;
+  overflow: visible;
+  background-color: #3e1f2f;
+}
+
+#skills > div {
+  width: 100%;
 }
 
 /* Header centered */
@@ -32,6 +40,7 @@
   gap: 50px;
   align-items: center;
   width: 100%;
+  padding-bottom: 30px;
 }
 
 .category {
@@ -113,6 +122,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  #skills {
+    padding: 50px 5% 70px;
+  }
+
   .skills_header {
     font-size: 2rem;
   }
