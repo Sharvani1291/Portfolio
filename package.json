@@ -2,7 +2,7 @@
   "name": "final-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Sharvani1291.github.io/Portfolio",
+  "homepage": "https://Sharvani1291.github.io/REPO_NAME",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.1",
     "@sanity/client": "^7.15.0",
