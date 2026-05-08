@@ -174,7 +174,6 @@ const Work = ({ experiences = [] }) => {
   }, [experiences]);
 
   const safeExperiences = Array.isArray(experiences) ? experiences : [];
-
   return (
     <section id="work" ref={sectionRef}>
       <h1 className="section-header">
