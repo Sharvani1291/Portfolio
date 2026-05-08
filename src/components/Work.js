@@ -8,26 +8,32 @@ const formatMonthYear = (dateStr) => {
   return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 };
 
-const calculateDuration = (startDateStr, endDateStr = new Date()) => {
+const calculateDuration = (startDateStr, endDateStr) => {
   if (!startDateStr) return '';
+
   const startDate = new Date(`${startDateStr}T00:00:00`);
-  const endDateObj = new Date(endDateStr);
+  const endDateObj = endDateStr ? new Date(`${endDateStr}T00:00:00`) : new Date();
+
   if (Number.isNaN(startDate.getTime()) || Number.isNaN(endDateObj.getTime())) return '';
 
   let months =
     (endDateObj.getFullYear() - startDate.getFullYear()) * 12 +
     (endDateObj.getMonth() - startDate.getMonth());
 
-  if (endDateObj.getDate() < startDate.getDate()) months--;
+  if (months < 0) return '';
 
   const years = Math.floor(months / 12);
   const remainingMonths = months % 12;
 
   if (years > 0) {
-    return remainingMonths > 0 ? `${years} yr ${remainingMonths} mos` : `${years} yr${years > 1 ? 's' : ''}`;
+    return remainingMonths > 0
+      ? `${years} yr ${remainingMonths} mos`
+      : `${years} yr${years > 1 ? 's' : ''}`;
   }
-  return `${Math.max(months, 0)} mos`;
+
+  return `${months} mos`;
 };
+
 
 const waitFor = (predicate, timeoutMs = 10000) =>
   new Promise((resolve, reject) => {
@@ -183,10 +189,8 @@ const Work = ({ experiences = [] }) => {
       <div className="content-wrapper" ref={contentRef}>
         {safeExperiences.map((exp, idx) => {
           const isCurrent = Boolean(exp.isCurrent) || !exp.endDate;
-          const period =
-            exp.periodLabel ||
-            `${formatMonthYear(exp.startDate)} - ${isCurrent ? 'Present' : formatMonthYear(exp.endDate)}`;
-          const duration = calculateDuration(exp.startDate, isCurrent ? new Date() : exp.endDate);
+          const period = `${formatMonthYear(exp.startDate)} - ${isCurrent ? 'Present' : formatMonthYear(exp.endDate)}`;
+          const duration = calculateDuration(exp.startDate, isCurrent ? null : exp.endDate);
           const direction = exp.direction || (idx % 2 === 0 ? 'left' : 'right');
 
           return (
