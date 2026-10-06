@@ -91,7 +91,7 @@ const Home = ({ home = {}, siteSettings = {} }) => {
   const highlightName = home.highlightName || 'Sharvani here!';
   const roles = home.roles || 'Data Engineer | Software Developer';
   const profileImageUrl = home.profileImageUrl || `${process.env.PUBLIC_URL}/images/My_Photo.jpg`;
-  const resumeUrl = home.resumeUrl || `${process.env.PUBLIC_URL}/Sharvani_Resume_2025.pdf`;
+  const resumeUrl = home.resumeUrl || `${process.env.PUBLIC_URL}/Sharvani_DataEngineer_Resume.pdf`;
 
   const email = siteSettings.email || 'ch.sharvani.29@gmail.com';
   const linkedin = siteSettings.linkedin || 'https://www.linkedin.com/in/sharvanichelumalla/';
